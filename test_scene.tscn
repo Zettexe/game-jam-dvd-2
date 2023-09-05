@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=12 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Texture2D" uid="uid://b4ot8nwnvqwoq" path="res://Assets/isometric-sandbox-sheet.png" id="1_m322p"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="4_movij"]
 [ext_resource type="Texture2D" uid="uid://blbso356g78th" path="res://Assets/icon.svg" id="5_3gdrm"]
 [ext_resource type="Script" path="res://Scripts/NPCDebug.gd" id="6_prrer"]
+[ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="7_ahs22"]
 [ext_resource type="Script" path="res://Scripts/NPC_2.gd" id="7_wmeo8"]
 [ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="8_bub80"]
 
@@ -66,14 +67,6 @@ tile_shape = 1
 tile_size = Vector2i(32, 16)
 sources/1 = SubResource("TileSetAtlasSource_k7al2")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drhtb"]
-radius = 8.0
-height = 32.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5710k"]
-radius = 16.0
-height = 64.0
-
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 
@@ -97,9 +90,7 @@ zoom = Vector2(3, 3)
 script = ExtResource("4_4nia0")
 
 [node name="NPC" type="StaticBody2D" parent="."]
-position = Vector2(128, 73)
-collision_layer = 16385
-collision_mask = 16385
+position = Vector2(134, 76)
 script = ExtResource("4_movij")
 npc_name = "I am an NPC"
 npc_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -110,24 +101,22 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_3gdrm")
 script = ExtResource("6_prrer")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="NPC"]
-position = Vector2(0, -8)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_drhtb")
+[node name="CollisionShape" type="CollisionPolygon2D" parent="NPC"]
+polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
+script = ExtResource("7_ahs22")
 
 [node name="Area" type="Area2D" parent="NPC"]
-position = Vector2(0, -8)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_5710k")
+[node name="CollisionShape" type="CollisionPolygon2D" parent="NPC/Area"]
+polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
+script = ExtResource("7_ahs22")
+radius_x = 32
+radius_y = 16
 
 [node name="NPC_2" type="StaticBody2D" parent="."]
 position = Vector2(70, 40)
-collision_layer = 16385
-collision_mask = 16385
 script = ExtResource("7_wmeo8")
 
 [node name="Sprite" type="Sprite2D" parent="NPC_2"]
@@ -136,19 +125,19 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_3gdrm")
 script = ExtResource("6_prrer")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="NPC_2"]
-position = Vector2(0, -8)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_drhtb")
+[node name="CollisionShape" type="CollisionPolygon2D" parent="NPC_2"]
+polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
+script = ExtResource("7_ahs22")
 
 [node name="Area" type="Area2D" parent="NPC_2"]
-position = Vector2(0, -8)
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_2/Area"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_5710k")
+[node name="CollisionShape" type="CollisionPolygon2D" parent="NPC_2/Area"]
+polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
+script = ExtResource("7_ahs22")
+radius_x = 32
+radius_y = 16
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 
