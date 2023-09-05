@@ -33,3 +33,4 @@ theme_override_constants/margin_bottom = 3
 layout_mode = 2
 size_flags_vertical = 1
 autowrap_mode = 3
+visible_characters_behavior = 2

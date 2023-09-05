@@ -31,10 +31,11 @@ func show_dialogue(npc_name: String, text: String):
 	name_label.text = npc_name
 	content_node.text = text
 	content_node.visible_characters = 0
-	background_opacity = Color.WHITE
-	container_target = Vector2.ZERO
-	await get_tree().create_timer(0.2).timeout
-	is_visible = true
+	if not is_visible:
+		background_opacity = Color.WHITE
+		container_target = Vector2.ZERO
+		await get_tree().create_timer(0.2).timeout
+		is_visible = true
 	
 func hide_dialogue():
 	is_visible = false

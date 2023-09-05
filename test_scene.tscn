@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://blbso356g78th" path="res://Assets/icon.svg" id="5_3gdrm"]
 [ext_resource type="Script" path="res://Scripts/NPCDebug.gd" id="6_prrer"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="7_ahs22"]
-[ext_resource type="Script" path="res://Scripts/NPC_2.gd" id="7_wmeo8"]
 [ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="8_bub80"]
+[ext_resource type="Script" path="res://Scripts/ScriptedDialogue.gd" id="12_ldvwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7al2"]
 texture = ExtResource("1_m322p")
@@ -668,11 +668,9 @@ slide_on_ceiling = false
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("4_4nia0")
 
-[node name="NPC" type="StaticBody2D" parent="."]
+[node name="NPC" type="StaticBody2D" parent="." groups=["Characters"]]
 position = Vector2(8, -28)
 script = ExtResource("4_movij")
-npc_name = "I am an NPC"
-npc_content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 [node name="Sprite" type="Sprite2D" parent="NPC"]
 position = Vector2(0, -16)
@@ -681,22 +679,24 @@ texture = ExtResource("5_3gdrm")
 script = ExtResource("6_prrer")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="NPC"]
-polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
+polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
 script = ExtResource("7_ahs22")
+radius_y = 12
 
 [node name="Area" type="Area2D" parent="NPC"]
 collision_layer = 32768
 collision_mask = 32768
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="NPC/Area"]
-polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
+polygon = PackedVector2Array(32, 0, 30.9096, 6.21166, 27.7128, 12, 22.6274, 16.9706, 16, 20.7846, 8.28221, 23.1822, 1.95943e-15, 24, -8.28221, 23.1822, -16, 20.7846, -22.6274, 16.9706, -27.7128, 12, -30.9096, 6.21166, -32, 2.93915e-15, -30.9096, -6.21166, -27.7128, -12, -22.6274, -16.9706, -16, -20.7846, -8.28221, -23.1822, -5.8783e-15, -24, 8.28221, -23.1822, 16, -20.7846, 22.6274, -16.9706, 27.7128, -12, 30.9096, -6.21166)
 script = ExtResource("7_ahs22")
 radius_x = 32
-radius_y = 16
+radius_y = 24
 
-[node name="NPC_2" type="StaticBody2D" parent="."]
+[node name="NPC_2" type="StaticBody2D" parent="." groups=["Characters"]]
 position = Vector2(70, 40)
-script = ExtResource("7_wmeo8")
+script = ExtResource("4_movij")
+npc = 1
 
 [node name="Sprite" type="Sprite2D" parent="NPC_2"]
 position = Vector2(0, -16)
@@ -705,18 +705,22 @@ texture = ExtResource("5_3gdrm")
 script = ExtResource("6_prrer")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="NPC_2"]
-polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
+polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
 script = ExtResource("7_ahs22")
+radius_y = 12
 
 [node name="Area" type="Area2D" parent="NPC_2"]
 collision_layer = 32768
 collision_mask = 32768
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="NPC_2/Area"]
-polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
+polygon = PackedVector2Array(32, 0, 30.9096, 6.21166, 27.7128, 12, 22.6274, 16.9706, 16, 20.7846, 8.28221, 23.1822, 1.95943e-15, 24, -8.28221, 23.1822, -16, 20.7846, -22.6274, 16.9706, -27.7128, 12, -30.9096, 6.21166, -32, 2.93915e-15, -30.9096, -6.21166, -27.7128, -12, -22.6274, -16.9706, -16, -20.7846, -8.28221, -23.1822, -5.8783e-15, -24, 8.28221, -23.1822, 16, -20.7846, 22.6274, -16.9706, 27.7128, -12, 30.9096, -6.21166)
 script = ExtResource("7_ahs22")
 radius_x = 32
-radius_y = 16
+radius_y = 24
+
+[node name="Scripted Dialogue" type="Node2D" parent="."]
+script = ExtResource("12_ldvwn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 

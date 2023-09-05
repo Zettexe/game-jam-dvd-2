@@ -15,6 +15,10 @@ run/main_scene="res://test_scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+DialogueData="*res://Scripts/DialogueData.gd"
+
 [input]
 
 move_up={
