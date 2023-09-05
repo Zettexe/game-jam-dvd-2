@@ -28,10 +28,9 @@ func cartesian_to_isometric(cartesian: Vector2) -> Vector2:
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
 
 func _physics_process(delta):
-	var direction = (Input.get_vector("move_left", "move_right", "move_up", "move_down") + \
-		Input.get_vector("move_up", "move_down", "move_right", "move_left"))
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") * Vector2(1, 0.75)
 	if direction and not lock_velocity:
-		velocity = cartesian_to_isometric(direction / 2) * SPEED
+		velocity = direction * SPEED
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, delta * STOPPING_FACTOR)
 	

@@ -4,7 +4,7 @@ const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 
 @export var dialogue_content = "This is some text to test the floating dialogue box"
 @export var dialogue_size = Vector2(200, 85)
-@export var dialogue_offset = Vector2(0, -150)
+@export var dialogue_offset = Vector2(0, -100)
 
 @onready var canvas_layer = get_tree().get_first_node_in_group("CanvasLayer")
 

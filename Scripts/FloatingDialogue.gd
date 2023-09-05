@@ -26,7 +26,7 @@ func show_dialogue(text: String, size: Vector2, position: Vector2):
 	content_node.text = text
 	content_node.visible_characters = 0
 	dialogue_size = size
-	dialogue_position = position + camera.get_screen_center_position() * 3
+	dialogue_position = position + camera.get_screen_center_position() * camera.zoom
 
 func hide_dialogue():
 	is_visible = false
@@ -39,7 +39,7 @@ func _process(delta):
 		background.size = background.size.lerp(dialogue_size, t)
 		background.position = background.position.lerp(-dialogue_size / 2, t)
 	
-	position = dialogue_position - (camera.get_screen_center_position()) * 3 # because zoom
+	position = dialogue_position - camera.get_screen_center_position() * camera.zoom
 	
 	if dialogue_size and background.size >= (dialogue_size - Vector2.ONE) and not is_visible:
 		background.size = dialogue_size
