@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4h8mnrpj7455"
-path="res://.godot/imported/TX Struct.png-d1f045836cf167fcfcbbde7b4ed6b55d.ctex"
+uid="uid://bl8kgq1ewadrk"
+path="res://.godot/imported/better_gaurd.png-39e8da31447406ab7fa6321bf7d2f243.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pixel Art Top Down - Basic/Texture/TX Struct.png"
-dest_files=["res://.godot/imported/TX Struct.png-d1f045836cf167fcfcbbde7b4ed6b55d.ctex"]
+source_file="res://Assets/better_gaurd.png"
+dest_files=["res://.godot/imported/better_gaurd.png-39e8da31447406ab7fa6321bf7d2f243.ctex"]
 
 [params]
 

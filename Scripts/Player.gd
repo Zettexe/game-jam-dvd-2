@@ -1,8 +1,18 @@
 extends CharacterBody2D
 
-const SPEED = 100
-const STOPPING_FACTOR = 800
+const SPEED = 200
+const STOPPING_FACTOR = 1600
 var lock_velocity = false
+var velocity_modifier = Vector2.ONE
+var has_mopping_powerup = false:
+	set(new_value):
+		has_mopping_powerup = new_value
+		mop_sprite.visible = new_value
+
+@onready var mop_sprite = $Mop
+
+func _ready():
+	mop_sprite.visible = has_mopping_powerup
 
 var overlapping_areas = []
 
@@ -28,9 +38,16 @@ func cartesian_to_isometric(cartesian: Vector2) -> Vector2:
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
 
 func _physics_process(delta):
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") * Vector2(1, 0.75)
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") * Vector2(1, 0.5)
+	for area in overlapping_areas:
+		if area.is_in_group("Puddle"):
+			if has_mopping_powerup:
+				area.get_parent().remove_child(area)
+				break
+			direction *= 0.5
+			break
 	if direction and not lock_velocity:
-		velocity = direction * SPEED
+		velocity = direction * velocity_modifier * SPEED
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, delta * STOPPING_FACTOR)
 	

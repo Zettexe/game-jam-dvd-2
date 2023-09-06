@@ -14,15 +14,6 @@ var dialogue_size = Vector2.ZERO
 var dialogue_position = Vector2.ZERO
 var is_visible = false # should probably rename this
 
-#func _input(event):
-#	if is_visible and event.is_action("interact", true) and event.pressed:
-#		if content_node.visible_characters < content_node.text.length():
-#			content_node.visible_characters = content_node.text.length()
-#			return
-#		
-#		hide_dialogue()
-
-# Change to more robust inputs later
 func show_dialogue(text: String, size: Vector2, position: Vector2):
 	content_node.text = text
 	content_node.visible_characters = 0
@@ -54,4 +45,3 @@ func _process(delta):
 	
 	if is_visible and content_node.text.length() > content_node.visible_characters:
 		content_node.visible_characters += 1
-

@@ -1,32 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://djevw1s1hmioy"]
+[gd_scene load_steps=5 format=3 uid="uid://djevw1s1hmioy"]
 
 [ext_resource type="Texture2D" uid="uid://blbso356g78th" path="res://Assets/icon.svg" id="1_54sp7"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_w58p0"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="3_0x28r"]
+[ext_resource type="Texture2D" uid="uid://58gl5tlfibgs" path="res://Assets/placeholdernpc.png" id="4_jo2q0"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(48, 80)
 script = ExtResource("1_w58p0")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
+polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
 script = ExtResource("3_0x28r")
-radius_y = 12
 
 [node name="Area" type="Area2D" parent="CollisionShape"]
 collision_layer = 0
-collision_mask = 32768
+collision_mask = 32784
 monitorable = false
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="CollisionShape/Area"]
-polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
+polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
 script = ExtResource("3_0x28r")
-radius_y = 12
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_54sp7")
+
+[node name="Mop" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+rotation = -3.10312
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("4_jo2q0")
 
 [connection signal="area_entered" from="CollisionShape/Area" to="." method="_on_interactable_area_entered"]
 [connection signal="area_exited" from="CollisionShape/Area" to="." method="_on_interactable_area_exited"]

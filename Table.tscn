@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://l8xe1hwx7kv1"]
+
+[ext_resource type="Script" path="res://Scripts/Table.gd" id="1_vh1hu"]
+[ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="2_cvh5s"]
+[ext_resource type="Texture2D" uid="uid://bvcpnu6fjgbhi" path="res://Assets/TablePlaceholder.png" id="3_wpw8l"]
+
+[node name="Table" type="StaticBody2D"]
+collision_layer = 17
+script = ExtResource("1_vh1hu")
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(24, 0, 23.1822, 3.10583, 20.7846, 6, 16.9706, 8.48528, 12, 10.3923, 6.21166, 11.5911, 1.46958e-15, 12, -6.21166, 11.5911, -12, 10.3923, -16.9706, 8.48528, -20.7846, 6, -23.1822, 3.10583, -24, 1.46958e-15, -23.1822, -3.10583, -20.7846, -6, -16.9706, -8.48528, -12, -10.3923, -6.21166, -11.5911, -4.40873e-15, -12, 6.21166, -11.5911, 12, -10.3923, 16.9706, -8.48528, 20.7846, -6, 23.1822, -3.10583)
+script = ExtResource("2_cvh5s")
+radius_x = 24
+radius_y = 12
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="Area"]
+polygon = PackedVector2Array(128, 0, 123.639, 16.5644, 110.851, 32, 90.5097, 45.2548, 64, 55.4256, 33.1288, 61.8193, 7.83774e-15, 64, -33.1288, 61.8193, -64, 55.4256, -90.5097, 45.2548, -110.851, 32, -123.639, 16.5644, -128, 7.83774e-15, -123.639, -16.5644, -110.851, -32, -90.5097, -45.2548, -64, -55.4256, -33.1288, -61.8193, -2.35132e-14, -64, 33.1288, -61.8193, 64, -55.4256, 90.5097, -45.2548, 110.851, -32, 123.639, -16.5644)
+script = ExtResource("2_cvh5s")
+radius_x = 128
+radius_y = 64
+
+[node name="TablePlaceholder" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_wpw8l")

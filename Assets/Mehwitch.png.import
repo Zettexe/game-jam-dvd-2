@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdwfrgr1v7y2n"
-path="res://.godot/imported/TX Shadow.png-87164af5e0fd414c0433362f1c097bd4.ctex"
+uid="uid://b6b1i0wtq6k60"
+path="res://.godot/imported/Mehwitch.png-c8f8646e018ab09a45b5476b40078811.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pixel Art Top Down - Basic/Texture/TX Shadow.png"
-dest_files=["res://.godot/imported/TX Shadow.png-87164af5e0fd414c0433362f1c097bd4.ctex"]
+source_file="res://Assets/Mehwitch.png"
+dest_files=["res://.godot/imported/Mehwitch.png-c8f8646e018ab09a45b5476b40078811.ctex"]
 
 [params]
 

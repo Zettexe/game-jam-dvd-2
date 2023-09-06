@@ -18,7 +18,7 @@ func get_character(find_character: DialogueData.Character):
 	assert(false)
 
 func _ready():
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(10).timeout
 	for npc in DialogueData.SCRIPTED_DIALOGUE[scripted_dialogue]:
 		var npc_node = get_character(npc.character)
 		var current_dialogue_node = FLOATING_DIALOGUE_REFERENCE.instantiate()

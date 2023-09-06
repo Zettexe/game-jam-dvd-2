@@ -23,3 +23,7 @@ func generate_shape():
 	
 	polygon = points
 
+func get_random_point_inside_shape() -> Vector2:
+	var theta = randf_range(0, TAU)
+	var r = sqrt(randf())
+	return Vector2(r * radius_x * cos(theta), r * radius_y * sin(theta))

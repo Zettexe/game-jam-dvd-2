@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccab56218j7s1"]
+
+[ext_resource type="Texture2D" uid="uid://blbso356g78th" path="res://Assets/icon.svg" id="2_huvxn"]
+[ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="3_koerr"]
+
+[node name="Puddle" type="Area2D" groups=["Puddle"]]
+collision_layer = 17
+collision_mask = 17
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1.66893e-06, -6.55651e-07)
+scale = Vector2(0.328125, 0.171875)
+texture = ExtResource("2_huvxn")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(24, 0, 23.1822, 3.10583, 20.7846, 6, 16.9706, 8.48528, 12, 10.3923, 6.21166, 11.5911, 1.46958e-15, 12, -6.21166, 11.5911, -12, 10.3923, -16.9706, 8.48528, -20.7846, 6, -23.1822, 3.10583, -24, 1.46958e-15, -23.1822, -3.10583, -20.7846, -6, -16.9706, -8.48528, -12, -10.3923, -6.21166, -11.5911, -4.40873e-15, -12, 6.21166, -11.5911, 12, -10.3923, 16.9706, -8.48528, 20.7846, -6, 23.1822, -3.10583)
+script = ExtResource("3_koerr")
+radius_x = 24
+radius_y = 12
