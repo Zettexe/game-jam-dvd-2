@@ -7,14 +7,17 @@ extends StaticBody2D
 @export var dialogue_size = Vector2(200, 85)
 @export var dialogue_offset = Vector2(0, -100)
 
+@export var scripted_dialogue: DialogueData.ScriptedDialogue
+
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var dialogue = get_tree().get_first_node_in_group("Dialogue")
 
 func _interact():
 	player.lock_movement()
 	player.lock_interaction()
-	dialogue.show_dialogue(npc_name, npc_content)
-	await dialogue.done
+	for npc in DialogueData.SCRIPTED_DIALOGUE[scripted_dialogue]:
+		dialogue.show_dialogue(DialogueData.CHARACTER_NAME[npc.character], npc.content)
+		await dialogue.done
 	player.unlock_movement()
 	player.unlock_interaction()
 	dialogue.hide_dialogue()

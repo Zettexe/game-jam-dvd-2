@@ -8,11 +8,6 @@
 position = Vector2(48, 80)
 script = ExtResource("1_w58p0")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_54sp7")
-
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
 script = ExtResource("3_0x28r")
@@ -27,6 +22,11 @@ monitorable = false
 polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
 script = ExtResource("3_0x28r")
 radius_y = 12
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_54sp7")
 
 [connection signal="area_entered" from="CollisionShape/Area" to="." method="_on_interactable_area_entered"]
 [connection signal="area_exited" from="CollisionShape/Area" to="." method="_on_interactable_area_exited"]

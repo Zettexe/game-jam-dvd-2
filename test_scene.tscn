@@ -672,12 +672,6 @@ script = ExtResource("4_4nia0")
 position = Vector2(8, -28)
 script = ExtResource("4_movij")
 
-[node name="Sprite" type="Sprite2D" parent="NPC"]
-position = Vector2(0, -16)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_3gdrm")
-script = ExtResource("6_prrer")
-
 [node name="CollisionShape" type="CollisionPolygon2D" parent="NPC"]
 polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
 script = ExtResource("7_ahs22")
@@ -693,16 +687,17 @@ script = ExtResource("7_ahs22")
 radius_x = 32
 radius_y = 24
 
-[node name="NPC_2" type="StaticBody2D" parent="." groups=["Characters"]]
-position = Vector2(70, 40)
-script = ExtResource("4_movij")
-npc = 1
-
-[node name="Sprite" type="Sprite2D" parent="NPC_2"]
+[node name="Sprite" type="Sprite2D" parent="NPC"]
 position = Vector2(0, -16)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_3gdrm")
 script = ExtResource("6_prrer")
+
+[node name="NPC_2" type="StaticBody2D" parent="." groups=["Characters"]]
+position = Vector2(70, 40)
+script = ExtResource("4_movij")
+npc = 1
+scripted_dialogue = 1
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="NPC_2"]
 polygon = PackedVector2Array(16, 0, 15.4548, 3.10583, 13.8564, 6, 11.3137, 8.48528, 8, 10.3923, 4.1411, 11.5911, 9.79717e-16, 12, -4.1411, 11.5911, -8, 10.3923, -11.3137, 8.48528, -13.8564, 6, -15.4548, 3.10583, -16, 1.46958e-15, -15.4548, -3.10583, -13.8564, -6, -11.3137, -8.48528, -8, -10.3923, -4.1411, -11.5911, -2.93915e-15, -12, 4.1411, -11.5911, 8, -10.3923, 11.3137, -8.48528, 13.8564, -6, 15.4548, -3.10583)
@@ -718,6 +713,12 @@ polygon = PackedVector2Array(32, 0, 30.9096, 6.21166, 27.7128, 12, 22.6274, 16.9
 script = ExtResource("7_ahs22")
 radius_x = 32
 radius_y = 24
+
+[node name="Sprite" type="Sprite2D" parent="NPC_2"]
+position = Vector2(0, -16)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_3gdrm")
+script = ExtResource("6_prrer")
 
 [node name="Scripted Dialogue" type="Node2D" parent="."]
 script = ExtResource("12_ldvwn")
@@ -799,6 +800,7 @@ grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 scroll_active = false
 scroll_following = true
+visible_characters_behavior = 2
 
 [connection signal="body_entered" from="NPC/Area" to="NPC/Sprite" method="_on_area_player_entered"]
 [connection signal="body_exited" from="NPC/Area" to="NPC/Sprite" method="_on_area_player_exited"]
