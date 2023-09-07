@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://wgopoe4aw4hb" path="res://Assets/holder_granma.png" id="8_7upr0"]
 [ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="8_bub80"]
 [ext_resource type="Script" path="res://Scripts/KitchenEntrance.gd" id="9_lmk24"]
-[ext_resource type="Texture2D" uid="uid://d3v08iomc0bft" path="res://Assets/Illustration31.png" id="9_to3t6"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="10_2yc3s"]
 [ext_resource type="Script" path="res://Scripts/MopBucket.gd" id="10_yudja"]
 [ext_resource type="PackedScene" uid="uid://l8xe1hwx7kv1" path="res://Table.tscn" id="11_1y6eo"]
@@ -19,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="12_lequn"]
 [ext_resource type="Texture2D" uid="uid://bn8kufy51b45c" path="res://Assets/kitchen_view.png" id="14_6kd7p"]
 [ext_resource type="Script" path="res://KitchenView.gd" id="15_0rewk"]
+[ext_resource type="Texture2D" uid="uid://d3keyrxend7m1" path="res://Assets/quick_bg.png" id="16_g7fro"]
 [ext_resource type="Texture2D" uid="uid://bsfofvqbtgy84" path="res://Assets/cauldron_holder_3.png" id="17_mle8f"]
 [ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="18_v2y3r"]
 
@@ -233,7 +233,7 @@ shape = SubResource("RectangleShape2D_s5htm")
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(-14, -44)
-texture = ExtResource("9_to3t6")
+texture = ExtResource("16_g7fro")
 
 [node name="Walls" type="StaticBody2D" parent="Background"]
 position = Vector2(32.1531, 101.053)
