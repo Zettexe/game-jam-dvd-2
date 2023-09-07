@@ -1,13 +1,10 @@
 extends Camera2D
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player = get_tree().get_first_node_in_group("KitchenPlayer")
 
 func _ready():
-	# Hack so I don't have to manually position the camera to the starting position
-	for i in range(0, 3):
-		await get_tree().process_frame
-	position_smoothing_enabled = true
-	position_smoothing_speed = 8
+	limit_left += get_parent().position.x
+	limit_right += get_parent().position.x
 
 func _process(delta):
-	position = player.position
+	position.x = player.position.x + player.velocity.x / 4

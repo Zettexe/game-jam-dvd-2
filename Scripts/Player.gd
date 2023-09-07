@@ -2,7 +2,11 @@ extends CharacterBody2D
 
 const SPEED = 600
 const STOPPING_FACTOR = 6400
-var lock_velocity = false
+
+@export var sidescroll_mode = false
+@export var lock_velocity = false
+@export var disable_input = false
+
 var velocity_modifier = Vector2.ONE
 
 var has_mopping_powerup = false:
@@ -33,6 +37,8 @@ func _ready():
 	normal_sprites.visible = !has_mopping_powerup
 	run_sprite.play()
 	mop_run_sprite.play()
+	if disable_input:
+		disable_interaction()
 
 var overlapping_areas = []
 
@@ -59,6 +65,10 @@ func cartesian_to_isometric(cartesian: Vector2) -> Vector2:
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") * Vector2(1, 0.75)
+		
+	if sidescroll_mode:
+		direction = Input.get_vector("move_left", "move_right", "none", "none") * Vector2(1, 0.75)
+	
 	for area in overlapping_areas:
 		if area.is_in_group("Puddle"):
 			if has_mopping_powerup:
@@ -87,9 +97,15 @@ func _physics_process(delta):
 
 func _on_interactable_area_entered(area):
 	overlapping_areas.append(area)
+	var node = area.get_parent()
+	if node.has_method("_player_entered"):
+		node._player_entered()
 
 func _on_interactable_area_exited(area):
 	overlapping_areas.erase(area)
+	var node = area.get_parent()
+	if node.has_method("_player_exited"):
+		node._player_exited()
 
 # Utility functions for the interactable object
 func disable_interaction():

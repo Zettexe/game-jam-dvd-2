@@ -40,6 +40,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(48, 80)
+motion_mode = 1
 script = ExtResource("1_w58p0")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
@@ -68,7 +69,7 @@ position = Vector2(-15, -110)
 texture = ExtResource("3_lsceu")
 
 [node name="RunSprite" type="AnimatedSprite2D" parent="Sprites/Normal"]
-position = Vector2(-29, -101)
+position = Vector2(-28, -111)
 sprite_frames = SubResource("SpriteFrames_1k0t1")
 
 [node name="Mop" type="Node2D" parent="Sprites"]
@@ -78,7 +79,7 @@ position = Vector2(39, -103)
 texture = ExtResource("4_vfwr5")
 
 [node name="RunSprite" type="AnimatedSprite2D" parent="Sprites/Mop"]
-position = Vector2(-6, -100)
+position = Vector2(-6, -111)
 sprite_frames = SubResource("SpriteFrames_kckor")
 frame_progress = 0.921438
 
