@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=26 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
 [ext_resource type="Texture2D" uid="uid://b6b1i0wtq6k60" path="res://Assets/Mehwitch.png" id="5_kay4c"]
 [ext_resource type="Texture2D" uid="uid://dihkb7oo0blcl" path="res://Assets/elderly.png" id="6_w4eis"]
 [ext_resource type="PackedScene" uid="uid://c4cq7t0jwbq8t" path="res://NPC.tscn" id="8_05blk"]
+[ext_resource type="Texture2D" uid="uid://wgopoe4aw4hb" path="res://Assets/holder_granma.png" id="8_7upr0"]
 [ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="8_bub80"]
 [ext_resource type="Script" path="res://Scripts/KitchenEntrance.gd" id="9_lmk24"]
 [ext_resource type="Texture2D" uid="uid://d3v08iomc0bft" path="res://Assets/Illustration31.png" id="9_to3t6"]
@@ -11,26 +12,32 @@
 [ext_resource type="Script" path="res://Scripts/MopBucket.gd" id="10_yudja"]
 [ext_resource type="PackedScene" uid="uid://l8xe1hwx7kv1" path="res://Table.tscn" id="11_1y6eo"]
 [ext_resource type="Texture2D" uid="uid://bl8kgq1ewadrk" path="res://Assets/better_gaurd.png" id="11_capwe"]
-[ext_resource type="Texture2D" uid="uid://d377q10rl7uu3" path="res://Assets/buddy.png" id="11_gqfmv"]
+[ext_resource type="Script" path="res://Scripts/CarrotCrate.gd" id="12_6xpyr"]
+[ext_resource type="Texture2D" uid="uid://bl6d780qfb23v" path="res://Assets/mop_holder.png" id="12_bha6a"]
+[ext_resource type="Texture2D" uid="uid://dhmybgae1psy7" path="res://Assets/buckit.png" id="12_jki6d"]
 [ext_resource type="Script" path="res://Scripts/ScriptedDialogue.gd" id="12_ldvwn"]
-[ext_resource type="Texture2D" uid="uid://58gl5tlfibgs" path="res://Assets/placeholdernpc.png" id="13_umpqv"]
+[ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="12_lequn"]
 [ext_resource type="Texture2D" uid="uid://bn8kufy51b45c" path="res://Assets/kitchen_view.png" id="14_6kd7p"]
 [ext_resource type="Script" path="res://KitchenView.gd" id="15_0rewk"]
 [ext_resource type="Texture2D" uid="uid://bsfofvqbtgy84" path="res://Assets/cauldron_holder_3.png" id="17_mle8f"]
 [ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="18_v2y3r"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
+size = Vector2(137, 207)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xec66"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axchr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
-size = Vector2(44, 74)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwk"]
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
+
+[node name="Scripted Dialogue" type="Node2D" parent="."]
+script = ExtResource("12_ldvwn")
+scripted_dialogue = 1
 
 [node name="Player" parent="." instance=ExtResource("2_xitt2")]
 collision_layer = 32769
@@ -40,7 +47,6 @@ slide_on_ceiling = false
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 position = Vector2(-13, -44)
-zoom = Vector2(1.72, 1.72)
 
 [node name="Table Set" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -48,115 +54,185 @@ y_sort_enabled = true
 [node name="Table" parent="Table Set" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set" instance=ExtResource("8_05blk")]
-position = Vector2(-15, -3)
+position = Vector2(-64, -18)
 flip_h = true
 texture = ExtResource("5_kay4c")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set" instance=ExtResource("8_05blk")]
-position = Vector2(18, -3)
+position = Vector2(80, -15)
 npc = 1
 texture = ExtResource("6_w4eis")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-4, -110)
 
 [node name="Table Set 2" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(187, -65)
+position = Vector2(345, -168)
 
 [node name="Table" parent="Table Set 2" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set 2" instance=ExtResource("8_05blk")]
-position = Vector2(-15, -3)
+position = Vector2(-66, -18)
 flip_h = true
 texture = ExtResource("6_w4eis")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set 2" instance=ExtResource("8_05blk")]
-position = Vector2(18, -3)
+position = Vector2(63, -18)
 npc = 1
 flip_h = true
 texture = ExtResource("11_capwe")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-4, -110)
 
 [node name="Table Set 3" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(169, 50)
+position = Vector2(-176, 251)
 
 [node name="Table" parent="Table Set 3" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set 3" instance=ExtResource("8_05blk")]
-position = Vector2(-15, -3)
+position = Vector2(-66, -18)
 texture = ExtResource("11_capwe")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 3" instance=ExtResource("8_05blk")]
-position = Vector2(18, -3)
+position = Vector2(63, -18)
 npc = 1
-flip_h = true
-texture = ExtResource("11_capwe")
-sprite_position = Vector2(-1, -30)
+texture = ExtResource("8_7upr0")
+sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 4" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-77, -101)
+position = Vector2(-171, -229)
 
 [node name="Table" parent="Table Set 4" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set 4" instance=ExtResource("8_05blk")]
-position = Vector2(-15, -3)
+position = Vector2(-66, -18)
 flip_h = true
 texture = ExtResource("5_kay4c")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 4" instance=ExtResource("8_05blk")]
-position = Vector2(18, -3)
+position = Vector2(63, -18)
 npc = 1
-flip_h = true
-texture = ExtResource("11_capwe")
-sprite_position = Vector2(-1, -30)
+texture = ExtResource("8_7upr0")
+sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 5" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-218, 4)
+position = Vector2(-575, 56)
 
 [node name="Table" parent="Table Set 5" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set 5" instance=ExtResource("8_05blk")]
-position = Vector2(-15, -3)
+position = Vector2(-66, -18)
 texture = ExtResource("11_capwe")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 5" instance=ExtResource("8_05blk")]
-position = Vector2(18, -3)
+position = Vector2(63, -18)
 npc = 1
 texture = ExtResource("5_kay4c")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-1, -110)
 
 [node name="Table Set 6" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-82, 108)
+position = Vector2(-599, 359)
 
 [node name="Table" parent="Table Set 6" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set 6" instance=ExtResource("8_05blk")]
-position = Vector2(-15, -3)
-texture = ExtResource("11_capwe")
-sprite_position = Vector2(-1, -30)
+position = Vector2(-66, -18)
+flip_h = true
+texture = ExtResource("8_7upr0")
+sprite_position = Vector2(-1, -90)
 
 [node name="NPC2" parent="Table Set 6" instance=ExtResource("8_05blk")]
-position = Vector2(18, -3)
+position = Vector2(63, -18)
 npc = 1
 texture = ExtResource("6_w4eis")
-sprite_position = Vector2(-1, -30)
+sprite_position = Vector2(-1, -110)
 
-[node name="Scripted Dialogue" type="Node2D" parent="."]
-script = ExtResource("12_ldvwn")
-scripted_dialogue = 1
+[node name="MopBucket" type="StaticBody2D" parent="."]
+position = Vector2(735, -330)
+collision_layer = 32769
+collision_mask = 32769
+script = ExtResource("10_yudja")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="MopBucket"]
+polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
+script = ExtResource("10_2yc3s")
+radius_x = 32
+radius_y = 16
+
+[node name="Area" type="Area2D" parent="MopBucket"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="MopBucket/Area"]
+polygon = PackedVector2Array(128, 0, 123.639, 16.5644, 110.851, 32, 90.5097, 45.2548, 64, 55.4256, 33.1288, 61.8193, 7.83774e-15, 64, -33.1288, 61.8193, -64, 55.4256, -90.5097, 45.2548, -110.851, 32, -123.639, 16.5644, -128, 7.83774e-15, -123.639, -16.5644, -110.851, -32, -90.5097, -45.2548, -64, -55.4256, -33.1288, -61.8193, -2.35132e-14, -64, 33.1288, -61.8193, 64, -55.4256, 90.5097, -45.2548, 110.851, -32, 123.639, -16.5644)
+script = ExtResource("10_2yc3s")
+radius_x = 128
+radius_y = 64
+
+[node name="BucketWithMop" type="Sprite2D" parent="MopBucket"]
+position = Vector2(-21, -82)
+texture = ExtResource("12_bha6a")
+
+[node name="Bucket" type="Sprite2D" parent="MopBucket"]
+position = Vector2(1, -34.5)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("12_jki6d")
+flip_h = true
+
+[node name="CarrotCrate" type="StaticBody2D" parent="."]
+position = Vector2(-671, -265)
+script = ExtResource("12_6xpyr")
+
+[node name="Sprite" type="Sprite2D" parent="CarrotCrate"]
+position = Vector2(-49, -86)
+texture = ExtResource("12_lequn")
+
+[node name="Sprite2" type="Sprite2D" parent="CarrotCrate/Sprite"]
+position = Vector2(124, 32)
+texture = ExtResource("12_lequn")
+
+[node name="Sprite3" type="Sprite2D" parent="CarrotCrate/Sprite"]
+position = Vector2(-8, 68)
+texture = ExtResource("12_lequn")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="CarrotCrate"]
+polygon = PackedVector2Array(128, 0, 123.639, 16.5644, 110.851, 32, 90.5097, 45.2548, 64, 55.4256, 33.1288, 61.8193, 7.83774e-15, 64, -33.1288, 61.8193, -64, 55.4256, -90.5097, 45.2548, -110.851, 32, -123.639, 16.5644, -128, 7.83774e-15, -123.639, -16.5644, -110.851, -32, -90.5097, -45.2548, -64, -55.4256, -33.1288, -61.8193, -2.35132e-14, -64, 33.1288, -61.8193, 64, -55.4256, 90.5097, -45.2548, 110.851, -32, 123.639, -16.5644)
+script = ExtResource("10_2yc3s")
+radius_x = 128
+radius_y = 64
+
+[node name="Area" type="Area2D" parent="CarrotCrate"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="CarrotCrate/Area"]
+polygon = PackedVector2Array(256, 0, 247.277, 33.1288, 221.702, 64, 181.019, 90.5097, 128, 110.851, 66.2577, 123.639, 1.56755e-14, 128, -66.2577, 123.639, -128, 110.851, -181.019, 90.5097, -221.702, 64, -247.277, 33.1288, -256, 1.56755e-14, -247.277, -33.1288, -221.702, -64, -181.019, -90.5097, -128, -110.851, -66.2577, -123.639, -4.70264e-14, -128, 66.2577, -123.639, 128, -110.851, 181.019, -90.5097, 221.702, -64, 247.277, -33.1288)
+script = ExtResource("10_2yc3s")
+radius_x = 256
+radius_y = 128
+
+[node name="KitchenEntrance" type="Node2D" parent="."]
+position = Vector2(766, 276)
+script = ExtResource("9_lmk24")
+
+[node name="Area" type="Area2D" parent="KitchenEntrance"]
+collision_layer = 32784
+collision_mask = 32768
+
+[node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance/Area"]
+position = Vector2(-48.5, 4.5)
+shape = SubResource("RectangleShape2D_s5htm")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(-14, -44)
-scale = Vector2(0.35, 0.35)
 texture = ExtResource("9_to3t6")
 
 [node name="Walls" type="StaticBody2D" parent="Background"]
@@ -182,49 +258,6 @@ shape = SubResource("WorldBoundaryShape2D_axchr")
 position = Vector2(332, 1.52588e-05)
 rotation = 4.69764
 shape = SubResource("WorldBoundaryShape2D_axchr")
-
-[node name="KitchenEntrance" type="Node2D" parent="."]
-script = ExtResource("9_lmk24")
-
-[node name="Area" type="Area2D" parent="KitchenEntrance"]
-position = Vector2(246, 69)
-collision_layer = 32784
-collision_mask = 32768
-
-[node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance/Area"]
-position = Vector2(-2, 1)
-shape = SubResource("RectangleShape2D_s5htm")
-
-[node name="MopBucket" type="StaticBody2D" parent="."]
-position = Vector2(66, -149)
-collision_layer = 32769
-collision_mask = 32769
-script = ExtResource("10_yudja")
-
-[node name="CollisionPolygon" type="CollisionPolygon2D" parent="MopBucket"]
-polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
-script = ExtResource("10_2yc3s")
-
-[node name="Area" type="Area2D" parent="MopBucket"]
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="CollisionPolygon" type="CollisionPolygon2D" parent="MopBucket/Area"]
-polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
-script = ExtResource("10_2yc3s")
-radius_x = 32
-radius_y = 16
-
-[node name="Sprite" type="Sprite2D" parent="MopBucket"]
-position = Vector2(-2, -27)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("11_gqfmv")
-
-[node name="Mop" type="Sprite2D" parent="MopBucket"]
-position = Vector2(-1, -19)
-rotation = -3.10312
-scale = Vector2(0.092, 0.092)
-texture = ExtResource("13_umpqv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 
@@ -306,6 +339,7 @@ scroll_following = true
 visible_characters_behavior = 2
 
 [node name="KitchenView" type="Control" parent="CanvasLayer" groups=["KitchenView"]]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -353,5 +387,7 @@ offset_bottom = 541.0
 texture_normal = ExtResource("17_mle8f")
 texture_hover = ExtResource("18_v2y3r")
 
+[connection signal="body_entered" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_player_entered"]
+[connection signal="body_exited" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_body_exited"]
 [connection signal="pressed" from="CanvasLayer/KitchenView/ExitButton" to="CanvasLayer/KitchenView" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/KitchenView/TextureButton" to="CanvasLayer/KitchenView" method="_on_cauldron_pressed"]

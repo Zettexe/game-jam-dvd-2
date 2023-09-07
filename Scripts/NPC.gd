@@ -24,7 +24,7 @@ signal dialogue_ready
 		if sprite_node:
 			sprite_node.texture = new_texture
 
-@export var sprite_position: Vector2:
+@export var sprite_position: Vector2 = Vector2(-4, -110):
 	set(new_sprite_position):
 		sprite_position = new_sprite_position
 		if sprite_node:

@@ -3,6 +3,7 @@ extends Node
 const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 
 @export var scripted_dialogue: DialogueData.ScriptedDialogue
+@export var start_at_seconds = 60
 
 @onready var characters = get_tree().get_nodes_in_group("Characters")
 @onready var canvas_layer = get_tree().get_first_node_in_group("CanvasLayer")
@@ -21,7 +22,7 @@ func _ready():
 	if scripted_dialogue == DialogueData.ScriptedDialogue.NONE:
 		return
 	
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(start_at_seconds).timeout
 	
 	for npc in DialogueData.SCRIPTED_DIALOGUE[scripted_dialogue]:
 		var npc_node = get_character(npc.character)
