@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4cq7t0jwbq8t"]
+[gd_scene load_steps=3 format=3 uid="uid://c4cq7t0jwbq8t"]
 
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_73cwi"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="2_8nwuh"]
-[ext_resource type="Texture2D" uid="uid://58gl5tlfibgs" path="res://Assets/placeholdernpc.png" id="3_rksso"]
-[ext_resource type="Script" path="res://Scripts/NPCDebug.gd" id="4_kdhfv"]
 
 [node name="NPC" type="StaticBody2D" groups=["Characters"]]
 position = Vector2(45, -17)
 collision_layer = 17
 script = ExtResource("1_73cwi")
+dialogue_offset = Vector2(0, -150)
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
@@ -25,10 +24,4 @@ radius_x = 32
 radius_y = 16
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(2, -37)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_rksso")
-script = ExtResource("4_kdhfv")
-
-[connection signal="body_entered" from="Area" to="Sprite" method="_on_area_player_entered"]
-[connection signal="body_exited" from="Area" to="Sprite" method="_on_area_player_exited"]

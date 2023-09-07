@@ -17,7 +17,7 @@ const CHATTER = [
 	"Pickle Nagito is best boy"
 ]
 
-enum ScriptedDialogue { SCRIPTED_DIALOGUE_NAME, SCRIPTED_DIALOGUE_2_NAME }
+enum ScriptedDialogue { NONE, SCRIPTED_DIALOGUE_NAME, SCRIPTED_DIALOGUE_2_NAME }
 
 const SCRIPTED_DIALOGUE = {
 	ScriptedDialogue.SCRIPTED_DIALOGUE_NAME: [

@@ -37,11 +37,13 @@ func _process(delta):
 		background.size = dialogue_size
 		background.position = -dialogue_size / 2
 		is_visible = true
-		emit_signal("done")
 	
 	if not dialogue_size and background.size <= Vector2.ONE * 10:
 		emit_signal("deleted")
 		canvas_layer.remove_child(self)
 	
-	if is_visible and content_node.text.length() > content_node.visible_characters:
-		content_node.visible_characters += 1
+	if is_visible:
+		if content_node.text.length() > content_node.visible_characters:
+			content_node.visible_characters += 1
+		else:
+			emit_signal("done")

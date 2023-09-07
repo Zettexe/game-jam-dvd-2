@@ -38,7 +38,7 @@ func cartesian_to_isometric(cartesian: Vector2) -> Vector2:
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
 
 func _physics_process(delta):
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") * Vector2(1, 0.5)
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down") * Vector2(1, 0.75)
 	for area in overlapping_areas:
 		if area.is_in_group("Puddle"):
 			if has_mopping_powerup:
@@ -60,10 +60,10 @@ func _on_interactable_area_exited(area):
 	overlapping_areas.erase(area)
 
 # Utility functions for the interactable object
-func lock_interaction():
+func disable_interaction():
 	set_process_input(false)
 
-func unlock_interaction():
+func enable_interaction():
 	set_process_input(true)
 
 func lock_movement():

@@ -1,15 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=23 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_4nia0"]
 [ext_resource type="Texture2D" uid="uid://b6b1i0wtq6k60" path="res://Assets/Mehwitch.png" id="5_kay4c"]
 [ext_resource type="Texture2D" uid="uid://dihkb7oo0blcl" path="res://Assets/elderly.png" id="6_w4eis"]
 [ext_resource type="PackedScene" uid="uid://c4cq7t0jwbq8t" path="res://NPC.tscn" id="8_05blk"]
 [ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="8_bub80"]
+[ext_resource type="Script" path="res://Scripts/KitchenEntrance.gd" id="9_lmk24"]
 [ext_resource type="Texture2D" uid="uid://d3v08iomc0bft" path="res://Assets/Illustration31.png" id="9_to3t6"]
+[ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="10_2yc3s"]
+[ext_resource type="Script" path="res://Scripts/MopBucket.gd" id="10_yudja"]
 [ext_resource type="PackedScene" uid="uid://l8xe1hwx7kv1" path="res://Table.tscn" id="11_1y6eo"]
 [ext_resource type="Texture2D" uid="uid://bl8kgq1ewadrk" path="res://Assets/better_gaurd.png" id="11_capwe"]
+[ext_resource type="Texture2D" uid="uid://d377q10rl7uu3" path="res://Assets/buddy.png" id="11_gqfmv"]
 [ext_resource type="Script" path="res://Scripts/ScriptedDialogue.gd" id="12_ldvwn"]
+[ext_resource type="Texture2D" uid="uid://58gl5tlfibgs" path="res://Assets/placeholdernpc.png" id="13_umpqv"]
+[ext_resource type="Texture2D" uid="uid://bn8kufy51b45c" path="res://Assets/kitchen_view.png" id="14_6kd7p"]
+[ext_resource type="Script" path="res://KitchenView.gd" id="15_0rewk"]
+[ext_resource type="Texture2D" uid="uid://bsfofvqbtgy84" path="res://Assets/cauldron_holder_3.png" id="17_mle8f"]
+[ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="18_v2y3r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xec66"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axchr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
+size = Vector2(44, 74)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwk"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -21,8 +39,8 @@ motion_mode = 1
 slide_on_ceiling = false
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-zoom = Vector2(2, 2)
-script = ExtResource("4_4nia0")
+position = Vector2(-13, -44)
+zoom = Vector2(1.72, 1.72)
 
 [node name="Table Set" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -43,7 +61,7 @@ sprite_position = Vector2(-1, -30)
 
 [node name="Table Set 2" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(198, -64)
+position = Vector2(187, -65)
 
 [node name="Table" parent="Table Set 2" instance=ExtResource("11_1y6eo")]
 
@@ -62,7 +80,7 @@ sprite_position = Vector2(-1, -30)
 
 [node name="Table Set 3" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(189, 59)
+position = Vector2(169, 50)
 
 [node name="Table" parent="Table Set 3" instance=ExtResource("11_1y6eo")]
 
@@ -133,12 +151,80 @@ sprite_position = Vector2(-1, -30)
 
 [node name="Scripted Dialogue" type="Node2D" parent="."]
 script = ExtResource("12_ldvwn")
+scripted_dialogue = 1
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -100
 position = Vector2(-14, -44)
-scale = Vector2(0.435417, 0.435417)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("9_to3t6")
+
+[node name="Walls" type="StaticBody2D" parent="Background"]
+position = Vector2(32.1531, 101.053)
+scale = Vector2(2.29665, 2.29665)
+collision_layer = 17
+
+[node name="BottomWall" type="CollisionShape2D" parent="Background/Walls"]
+position = Vector2(0, 200)
+shape = SubResource("WorldBoundaryShape2D_xec66")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Background/Walls"]
+position = Vector2(-350, 0)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_axchr")
+
+[node name="TopWall" type="CollisionShape2D" parent="Background/Walls"]
+position = Vector2(0, -174)
+rotation = 3.12414
+shape = SubResource("WorldBoundaryShape2D_axchr")
+
+[node name="RightWall" type="CollisionShape2D" parent="Background/Walls"]
+position = Vector2(332, 1.52588e-05)
+rotation = 4.69764
+shape = SubResource("WorldBoundaryShape2D_axchr")
+
+[node name="KitchenEntrance" type="Node2D" parent="."]
+script = ExtResource("9_lmk24")
+
+[node name="Area" type="Area2D" parent="KitchenEntrance"]
+position = Vector2(246, 69)
+collision_layer = 32784
+collision_mask = 32768
+
+[node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance/Area"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_s5htm")
+
+[node name="MopBucket" type="StaticBody2D" parent="."]
+position = Vector2(66, -149)
+collision_layer = 32769
+collision_mask = 32769
+script = ExtResource("10_yudja")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="MopBucket"]
+polygon = PackedVector2Array(16, 0, 15.4548, 2.07055, 13.8564, 4, 11.3137, 5.65685, 8, 6.9282, 4.1411, 7.72741, 9.79717e-16, 8, -4.1411, 7.72741, -8, 6.9282, -11.3137, 5.65685, -13.8564, 4, -15.4548, 2.07055, -16, 9.79717e-16, -15.4548, -2.07055, -13.8564, -4, -11.3137, -5.65685, -8, -6.9282, -4.1411, -7.72741, -2.93915e-15, -8, 4.1411, -7.72741, 8, -6.9282, 11.3137, -5.65685, 13.8564, -4, 15.4548, -2.07055)
+script = ExtResource("10_2yc3s")
+
+[node name="Area" type="Area2D" parent="MopBucket"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="MopBucket/Area"]
+polygon = PackedVector2Array(32, 0, 30.9096, 4.1411, 27.7128, 8, 22.6274, 11.3137, 16, 13.8564, 8.28221, 15.4548, 1.95943e-15, 16, -8.28221, 15.4548, -16, 13.8564, -22.6274, 11.3137, -27.7128, 8, -30.9096, 4.1411, -32, 1.95943e-15, -30.9096, -4.1411, -27.7128, -8, -22.6274, -11.3137, -16, -13.8564, -8.28221, -15.4548, -5.8783e-15, -16, 8.28221, -15.4548, 16, -13.8564, 22.6274, -11.3137, 27.7128, -8, 30.9096, -4.1411)
+script = ExtResource("10_2yc3s")
+radius_x = 32
+radius_y = 16
+
+[node name="Sprite" type="Sprite2D" parent="MopBucket"]
+position = Vector2(-2, -27)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_gqfmv")
+
+[node name="Mop" type="Sprite2D" parent="MopBucket"]
+position = Vector2(-1, -19)
+rotation = -3.10312
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("13_umpqv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 
@@ -219,10 +305,53 @@ scroll_active = false
 scroll_following = true
 visible_characters_behavior = 2
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="KitchenView" type="Control" parent="CanvasLayer" groups=["KitchenView"]]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("15_0rewk")
+
+[node name="Filler" type="Panel" parent="CanvasLayer/KitchenView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bbcwk")
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/KitchenView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_6kd7p")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/KitchenView"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 93.0
+offset_right = 217.0
+offset_bottom = 535.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/KitchenView"]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 348.0
+offset_right = 1036.0
+offset_bottom = 541.0
+texture_normal = ExtResource("17_mle8f")
+texture_hover = ExtResource("18_v2y3r")
+
+[connection signal="pressed" from="CanvasLayer/KitchenView/ExitButton" to="CanvasLayer/KitchenView" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/KitchenView/TextureButton" to="CanvasLayer/KitchenView" method="_on_cauldron_pressed"]

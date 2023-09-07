@@ -1,7 +1,7 @@
 @tool
 extends StaticBody2D
 
-const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
+signal dialogue_ready
 
 @export var npc_name: String
 @export var npc_content: String
@@ -35,6 +35,7 @@ const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 @onready var dialogue = get_tree().get_first_node_in_group("Dialogue")
 
 var is_chattering = false
+var scripted_waiting = false
 
 func _ready():
 	sprite_node.position = sprite_position
@@ -42,6 +43,8 @@ func _ready():
 	sprite_node.flip_h = flip_h
 
 func _interact():
+	if scripted_dialogue == DialogueData.ScriptedDialogue.NONE:
+		return
 	player.lock_movement()
 	player.lock_interaction()
 	for npc in DialogueData.SCRIPTED_DIALOGUE[scripted_dialogue]:
@@ -50,9 +53,3 @@ func _interact():
 	player.unlock_movement()
 	player.unlock_interaction()
 	dialogue.hide_dialogue()
-
-#func _process():
-#	if not is_chattering and randi() % 100 < 10:
-#		var dialogue_node = FLOATING_DIALOGUE_REFERENCE.instantiate()
-#		dialogue_node.position = position
-#		canvas_layer.add_child(dialogue_node)
