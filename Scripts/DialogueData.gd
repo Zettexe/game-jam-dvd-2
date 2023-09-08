@@ -1,6 +1,6 @@
 extends Node
 
-enum Character { MC, WITCH, NARRATOR, MCAT, BOSS, GUARD, ELDERLY, GRANDMA } # Rename this to the characters name
+enum Character { MC, WITCH, NARRATOR, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS } # Rename this to the characters name
 
 const CHARACTER_NAME = {
 	Character.MC: "Natalia",
@@ -10,7 +10,8 @@ const CHARACTER_NAME = {
 	Character.BOSS: "Hailey",
 	Character.GUARD: "Guard",
 	Character.ELDERLY: "Elderly",
-	Character.GRANDMA: "Grandma"
+	Character.GRANDMA: "Grandma",
+	Character.HUNTRESS: "Huntress"
 }
 
 const CHATTER = [
@@ -23,7 +24,7 @@ const CHATTER = [
 	"Ack! Almost spilled my drink..."
 ]
 
-enum ScriptedDialogue { NONE, INTRO, BATKNIFE1 }
+enum ScriptedDialogue { NONE, INTRO, BATKNIFE1, BAKERY1 }
 
 const SCRIPTED_DIALOGUE = {
 	ScriptedDialogue.INTRO: [
@@ -83,8 +84,72 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.MC, "content": "(Ugh. Stuff to do is piling up already. I better get back to work, I don't want to be yelled at.)" }
 	],
 	ScriptedDialogue.BATKNIFE1: [
-		{ "character": Character.GUARD, "content": "" },
-		{ "character": Character.ELDERLY, "content": "" },
-		{ "character": Character.GUARD, "content": "" }
+		{ "character": Character.GUARD, "content": "Okay gramps, hear me out." },
+		{ "character": Character.ELDERLY, "content": "Yeah?" },
+		{ "character": Character.GUARD, "content": "What do you think is the better weapon?
+													A bat or a knife?" },
+		{ "character": Character.ELDERLY, "content": "Huh... Depends. Who's fighting? With my bad back I would lose either way, hahaha!" },
+		{ "character": Character.GUARD, "content": "No, it... It doesn't matter... Okay, suppose it's a clone of you—" },
+		{ "character": Character.ELDERLY, "content": "Who made the clone?" },
+		{ "character": Character.GUARD, "content": "Who made...? What. No, that doesn't matter. Focus on the weapon!" },
+		{ "character": Character.ELDERLY, "content": "Why? If it was that witch from before, the clone might be drunk! Hahaha!" },
+		{ "character": Character.GUARD, "content": "It's just a clone of you! As you are right now!" },
+		{ "character": Character.ELDERLY, "content": "Ahhh... Then... I suppose the knife would win." },
+		{ "character": Character.GUARD, "content": "You think? Why?" },
+		{ "character": Character.ELDERLY, "content": "I can't swing a bat! My back would crack! Hahaha!" },
+		{ "character": Character.GUARD, "content": "..." },
+		{ "character": Character.ELDERLY, "content": "I'm not sure I could hold a knife either! You know my wife Genevieve? She tried to stab me the other day!" },
+		{ "character": Character.GUARD, "content": "She what?" },
+		{ "character": Character.ELDERLY, "content": "I think so, at least! That's what it looked like, hahaha!" },
+		{ "character": Character.GUARD, "content": "Why are you laughing about it..." },
+		{ "character": Character.ELDERLY, "content": "Ahh! I jest, I jest! My dear would never, she's a good wife! That's why I'm here talking to you instead of being home, hahaha!" },
+		{ "character": Character.GUARD, "content": "...Right." },
+		{ "character": Character.GUARD, "content": "As I was saying..." },
+		{ "character": Character.GUARD, "content": "...Actually, nevermind." },
+		{ "character": Character.ELDERLY, "content": "No, no, continue! I like brainteasers such as these! Young folks like you need to keep that stuff healthy!" },
+		{ "character": Character.GUARD, "content": "...Okay." },
+		{ "character": Character.GUARD, "content": "Suppose it was you... uh... Fifty years ago. Sixty." },
+		{ "character": Character.GUARD, "content": "However long ago you were twenty." },
+		{ "character": Character.ELDERLY, "content": "Haha! You know that the best wine is the aged one!" },
+		{ "character": Character.GUARD, "content": "Yeah—" },
+		{ "character": Character.ELDERLY, "content": "And cheese!" },
+		{ "character": Character.GUARD, "content": "So. Bat or knife?" },
+		{ "character": Character.ELDERLY, "content": "And I'm twenty?" },
+		{ "character": Character.GUARD, "content": "Yes." },
+		{ "character": Character.ELDERLY, "content": "Who am I fighting?" },
+		{ "character": Character.GUARD, "content": "A clone of yourself!" },
+		{ "character": Character.ELDERLY, "content": "Ahh! Right! Hmmm..." },
+		{ "character": Character.ELDERLY, "content": "Bat, for sure." },
+		{ "character": Character.GUARD, "content": "Alright. Why?" },
+		{ "character": Character.ELDERLY, "content": "Looks better with the ladies! Knives are for thieves and scoundrels! No good woman would be the wife of someone like that!" },
+		{ "character": Character.GUARD, "content": "...Okay, forget the women." },
+		{ "character": Character.ELDERLY, "content": "I've been trying! Why do you think I'm here? Hahaha!" },
+		{ "character": Character.GUARD, "content": "Gramps! It's a fight to the death! You don't care about impressing women, you just want to get out of there alive!" },
+		{ "character": Character.ELDERLY, "content": "Ahhh, okay... Then... Hmmm..." },
+		{ "character": Character.GUARD, "content": "Yeah?" },
+		{ "character": Character.ELDERLY, "content": "Which one would you choose?" },
+		{ "character": Character.GUARD, "content": "Me?
+													I don't want to influence your answer. I'll tell you after you tell me." },
+		{ "character": Character.ELDERLY, "content": "Hahaha! It's a tough one!" },
+		{ "character": Character.GUARD, "content": "Sure is. Whole barracks was talking about it. Almost made a riot." },
+		{ "character": Character.ELDERLY, "content": "Is that what you young folks get to today? Argue all time?" },
+		{ "character": Character.GUARD, "content": "...Sorta. Why, didn't you say it was good for the brain?" },
+		{ "character": Character.ELDERLY, "content": "When did I say that? Men should use their muscles! Not their brain!" },
+		{ "character": Character.GUARD, "content": "But you said—" },
+		{ "character": Character.ELDERLY, "content": "Back in my day, they would have grabbed a bat and a knife and started fighting!" },
+		{ "character": Character.GUARD, "content": "They almost did, but... That's not the point." },
+		{ "character": Character.ELDERLY, "content": "And then they'd go get a beer together!" },
+		{ "character": Character.GUARD, "content": "..." },
+		{ "character": Character.GUARD, "content": "Let's get back on track." },
+		{ "character": Character.ELDERLY, "content": "What track? I'm not moving from here, I'm still finishing my meal!" },
+		{ "character": Character.GUARD, "content": "..." },
+		{ "character": Character.GUARD, "content": "Can you give me an answer?" },
+		{ "character": Character.ELDERLY, "content": "To what?" },
+		{ "character": Character.GUARD, "content": "..." },
+		{ "character": Character.GUARD, "content": "Forget it." },
+	],
+	ScriptedDialogue.BAKERY1: [
+		{ "character": Character.HUNTRESS, "content": ""},
+		{ "character": Character.GRANDMA, "content": ""},
 	]
 }
