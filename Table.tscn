@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://l8xe1hwx7kv1"]
+[gd_scene load_steps=7 format=3 uid="uid://l8xe1hwx7kv1"]
 
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="1_vh1hu"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="2_cvh5s"]
 [ext_resource type="Texture2D" uid="uid://bvcpnu6fjgbhi" path="res://Assets/TablePlaceholder.png" id="3_wpw8l"]
+[ext_resource type="Texture2D" uid="uid://be5patch2rswd" path="res://Assets/idkcandle.png" id="4_2k8f6"]
+[ext_resource type="Texture2D" uid="uid://b4nfudhq30tbe" path="res://Assets/badcandle.png" id="4_6gjof"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1wax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6gjof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2k8f6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Table" type="StaticBody2D"]
 collision_layer = 17
@@ -13,6 +29,17 @@ polygon = PackedVector2Array(80, 0, 77.2741, 10.3528, 69.282, 20, 56.5685, 28.28
 script = ExtResource("2_cvh5s")
 radius_x = 80
 radius_y = 40
+
+[node name="Interactionarea" type="Area2D" parent="."]
+position = Vector2(0, 24)
+collision_layer = 32784
+collision_mask = 32768
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactionarea"]
+polygon = PackedVector2Array(128, 0, 123.639, 16.5644, 110.851, 32, 90.5097, 45.2548, 64, 55.4256, 33.1288, 61.8193, 7.83774e-15, 64, -33.1288, 61.8193, -64, 55.4256, -90.5097, 45.2548, -110.851, 32, -123.639, 16.5644, -128, 7.83774e-15, -123.639, -16.5644, -110.851, -32, -90.5097, -45.2548, -64, -55.4256, -33.1288, -61.8193, -2.35132e-14, -64, 33.1288, -61.8193, 64, -55.4256, 90.5097, -45.2548, 110.851, -32, 123.639, -16.5644)
+script = ExtResource("2_cvh5s")
+radius_x = 128
+radius_y = 64
 
 [node name="Area" type="Area2D" parent="."]
 
@@ -25,3 +52,8 @@ radius_y = 128
 [node name="TablePlaceholder" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 texture = ExtResource("3_wpw8l")
+
+[node name="Candle" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -113)
+sprite_frames = SubResource("SpriteFrames_o1wax")
+frame = 1

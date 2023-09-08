@@ -11,13 +11,29 @@
 [ext_resource type="Script" path="res://Scripts/MopBucket.gd" id="10_yudja"]
 [ext_resource type="PackedScene" uid="uid://l8xe1hwx7kv1" path="res://Table.tscn" id="11_1y6eo"]
 [ext_resource type="Texture2D" uid="uid://bl8kgq1ewadrk" path="res://Assets/better_gaurd.png" id="11_capwe"]
-[ext_resource type="Script" path="res://Scripts/CarrotCrate.gd" id="12_6xpyr"]
 [ext_resource type="Texture2D" uid="uid://bl6d780qfb23v" path="res://Assets/mop_holder.png" id="12_bha6a"]
 [ext_resource type="Texture2D" uid="uid://dhmybgae1psy7" path="res://Assets/buckit.png" id="12_jki6d"]
 [ext_resource type="Script" path="res://Scripts/ScriptedDialogue.gd" id="12_ldvwn"]
 [ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="12_lequn"]
 [ext_resource type="Texture2D" uid="uid://d3keyrxend7m1" path="res://Assets/quick_bg.png" id="16_g7fro"]
 [ext_resource type="PackedScene" uid="uid://c0iiahg3gkjv0" path="res://Kitchen.tscn" id="17_v6k0s"]
+
+[sub_resource type="GDScript" id="GDScript_30r57"]
+script/source = "extends StaticBody2D
+
+@onready var player = get_tree().get_nodes_in_group(\"Player\")
+@onready var sprite = $Sprite
+
+func _interact():
+	for p in player:
+		p.has_crate_powerup = true
+
+func _on_area_player_entered(body):
+	sprite.modulate = Color.RED
+
+func _on_area_body_exited(body):
+	sprite.modulate = Color.WHITE
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xec66"]
 
@@ -46,7 +62,7 @@ slide_on_ceiling = false
 
 [node name="Table Set" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-42, 47)
+position = Vector2(99, 84)
 
 [node name="Table" parent="Table Set" instance=ExtResource("11_1y6eo")]
 
@@ -83,7 +99,7 @@ sprite_position = Vector2(-4, -110)
 
 [node name="Table Set 3" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-132, 298)
+position = Vector2(302, 342)
 
 [node name="Table" parent="Table Set 3" instance=ExtResource("11_1y6eo")]
 
@@ -100,7 +116,7 @@ sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 4" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-179, -195)
+position = Vector2(-163, -195)
 
 [node name="Table" parent="Table Set 4" instance=ExtResource("11_1y6eo")]
 
@@ -118,7 +134,7 @@ sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 5" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-575, 56)
+position = Vector2(-421, 48)
 
 [node name="Table" parent="Table Set 5" instance=ExtResource("11_1y6eo")]
 
@@ -135,7 +151,7 @@ sprite_position = Vector2(-1, -110)
 
 [node name="Table Set 6" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-599, 359)
+position = Vector2(-173, 344)
 
 [node name="Table" parent="Table Set 6" instance=ExtResource("11_1y6eo")]
 
@@ -184,8 +200,8 @@ texture = ExtResource("12_jki6d")
 flip_h = true
 
 [node name="CarrotCrate" type="StaticBody2D" parent="."]
-position = Vector2(-646, -254)
-script = ExtResource("12_6xpyr")
+position = Vector2(-630, -254)
+script = SubResource("GDScript_30r57")
 
 [node name="Sprite" type="Sprite2D" parent="CarrotCrate"]
 position = Vector2(-49, -86)

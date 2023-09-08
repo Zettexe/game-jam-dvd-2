@@ -7,4 +7,4 @@ func _ready():
 	limit_right += get_parent().position.x
 
 func _process(delta):
-	position.x = player.position.x + player.velocity.x / 4
+	position.x = player.position.x
