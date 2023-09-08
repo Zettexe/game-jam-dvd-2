@@ -21,23 +21,24 @@ const CHATTER = [
 	"Hmhm...",
 	"[Loud eating noises]",
 	"There's a nice smell coming from the kitchen!",
-	"Ack! Almost spilled my drink..."
+	"Ack! Almost spilled my drink...",
+	"I'm so hungry, I could eat a horse!"
 ]
 
 enum ScriptedDialogue { NONE, INTRO, BATKNIFE1, BAKERY1 }
 
 const DARKNESS_CHATTER = [
 	"Hey! Who turned out the lights?",
-	"Why is it so dark all of a sudden...",
-    "This is surreal... from light to nothingness.",
-    "This darkness feels oppressive, like it's invading my soul.",
-    "How can it be this dark, I can't even see my hand?",
-    "What happened? It's suddenly pitch black!",
-    "Can anyone see? It feels like we've been swallowed by darkness.",
-    "So strange, from light to darkness just like that.",
-    "I wasn't ready for this sudden plunge into night.",
-    "We need light fast; it's too dark to see.",
-    "Let's stay calm and figure out this sudden darkness."
+	"Hello? The lights?",
+	"Turn the lights back on! Immediately!",
+	"It's so dark... I can't see anything!",
+	"It's too dark! I'm scared!",
+	"What's going on?!",
+	"Turn the lights back on! Please!",
+	"I don't know where my hands are anymore!",
+	"Ugh... I lost my train of thought there...",
+	"Hey! Bargirl! The lights!",
+	"Why is everyone shouting?!"
 ]
 
 const SCRIPTED_DIALOGUE = {
@@ -163,7 +164,56 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GUARD, "content": "Forget it." },
 	],
 	ScriptedDialogue.BAKERY1: [
-		{ "character": Character.HUNTRESS, "content": ""},
-		{ "character": Character.GRANDMA, "content": ""},
-	]
+		{ "character": Character.GRANDMA, "content": "Ah, sweetie... Did you remember to order the bread?"},
+		{ "character": Character.HUNTRESS, "content": "'Ma, we've been goin' to the same bakery for years now.
+													They know your order by heart."},
+		{ "character": Character.GRANDMA, "content": "Do they, now... I still would like for you to place the order, though..."},
+		{ "character": Character.HUNTRESS, "content": "Why? It's always the same. A whole loaf. It's not even hard to remember."},
+		{ "character": Character.GRANDMA, "content": "Because, sweetie. That way they make it especially for us, and we know it will always be there."},
+		{ "character": Character.HUNTRESS, "content": "Guess so. Don't think there's 'nough people in the town to buy out the bakery anyway, is there?"},
+		{ "character": Character.GRANDMA, "content": "Take it from me, sweetie. You never know when famine strikes."},
+		{ "character": Character.HUNTRESS, "content": "Wouldn't that just mean no bread for anyone? Doesn't matter if we order it."},
+		{ "character": Character.GRANDMA, "content": "Ah, you would think that... But the left over wheat will be gone fast, and people will buy more than they need...
+													And that leaves us with no bread."},
+		{ "character": Character.HUNTRESS, "content": "...Guess so. Wait, 'ma, you lived through that?"},
+		{ "character": Character.GRANDMA, "content": "Well, I'm alive, am I not?"},
+		{ "character": Character.HUNTRESS, "content": "Hah. I meant. You had that happen to you?"},
+		{ "character": Character.GRANDMA, "content": "Many things happened to me, sweetie... But yes, yes. It was a very cold winter..."},
+		{ "character": Character.HUNTRESS, "content": "Oh, story time. Nice. Can finish my soup."},
+		{ "character": Character.GRANDMA, "content": "Ahem! It was a very cold winter..."},
+		{ "character": Character.HUNTRESS, "content": "Wait, 'ma. Can you pass me the water?"},
+		{ "character": Character.GRANDMA, "content": "Do you want to hear it or no?"},
+		{ "character": Character.HUNTRESS, "content": "Aye. I just wanted to drink."},
+		{ "character": Character.GRANDMA, "content": "Fine, there. Now, where was I?"},
+		{ "character": Character.HUNTRESS, "content": "It was a very cold winter."},
+		{ "character": Character.GRANDMA, "content": "Ah, yes! It was a very cold winter..."},
+		{ "character": Character.GRANDMA, "content": "We were getting ready to harvest that season's wheat...
+													When all of a sudden..."},
+		{ "character": Character.GRANDMA, "content": "Famine struck!"},
+		{ "character": Character.HUNTRESS, "content": "...Just like that?"},
+		{ "character": Character.GRANDMA, "content": "Well, I told you. It was a very cold winter."},
+		{ "character": Character.GRANDMA, "content": "If it's too cold, the harvest suffers."},
+		{ "character": Character.HUNTRESS, "content": "...Yeah I guess I could have seen it coming, huh."},
+		{ "character": Character.GRANDMA, "content": "Thankfully, we weren't many. We mostly lost money from selling it, but we had enough to eat."},
+		{ "character": Character.HUNTRESS, "content": "Ah, wasn't too bad, then."},
+		{ "character": Character.GRANDMA, "content": "No, no... Except when the well froze over. That was fun."},
+		{ "character": Character.HUNTRESS, "content": "The... Well froze?"},
+		{ "character": Character.GRANDMA, "content": "Yes it did. It was a very—"},
+		{ "character": Character.HUNTRESS, "content": "Cold winter, yes, yes, I get it."},
+		{ "character": Character.GRANDMA, "content": "Now, now, sweetie! Why so grumpy?"},
+		{ "character": Character.HUNTRESS, "content": "I'm not grumpy!"},
+		{ "character": Character.GRANDMA, "content": "Yes you are. Was the baker girl not there?"},
+		{ "character": Character.HUNTRESS, "content": "Huh?! What's she got to do with anything?"},
+		{ "character": Character.GRANDMA, "content": "I might be old, but I'm not blind yet."},
+		{ "character": Character.HUNTRESS, "content": "..."},
+		{ "character": Character.GRANDMA, "content": "Sweetie, sweetie. Grandma has more surprises than you might think."},
+		{ "character": Character.HUNTRESS, "content": "...'ma? Whatcha mean?"},
+		{ "character": Character.GRANDMA, "content": "I have a fine eye for good lasses like that. You see..."},
+		{ "character": Character.HUNTRESS, "content": "Oh, nope, nope. I know you. You're going to overshare and I will be traumatized for life."},
+		{ "character": Character.GRANDMA, "content": "Haha! No, sweetie! You see, during that very cold winter..."},
+		{ "character": Character.HUNTRESS, "content": "Oh Goddess above."},
+		{ "character": Character.GRANDMA, "content": "Yes, why, she said exactly the same!"},
+		{ "character": Character.HUNTRESS, "content": "..."}
+	],
+	
 }
