@@ -7,15 +7,22 @@ const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 
 @onready var canvas_layer = get_tree().get_first_node_in_group("CanvasLayer")
 @onready var spawn_area = $Area/CollisionShape
+@onready var candle = $Candle
 
 var npcs = []
+var candle_lit = false:
+	set(value):
+		candle_lit = value
+		candle.frame = int(value)
+
+func _interact():
+	candle_lit = true
 
 func _ready():
 	var t_npc = get_parent().get_children()
 	for npc in t_npc:
 		if npc.is_in_group("Characters"):
 			npcs.append(npc)
-	
 
 func _process(delta):
 	if randi() % 100000 < int(spawn_chance_per_frame * 1000):
@@ -52,4 +59,7 @@ func _process(delta):
 			npc.is_chattering = false
 			if npc.scripted_waiting:
 				npc.emit_signal("dialogue_ready")
+	
+	if randi() % 1000 < 10:
+		candle_lit = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=23 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
 [ext_resource type="Texture2D" uid="uid://b6b1i0wtq6k60" path="res://Assets/Mehwitch.png" id="5_kay4c"]
@@ -11,26 +11,39 @@
 [ext_resource type="Script" path="res://Scripts/MopBucket.gd" id="10_yudja"]
 [ext_resource type="PackedScene" uid="uid://l8xe1hwx7kv1" path="res://Table.tscn" id="11_1y6eo"]
 [ext_resource type="Texture2D" uid="uid://bl8kgq1ewadrk" path="res://Assets/better_gaurd.png" id="11_capwe"]
-[ext_resource type="Script" path="res://Scripts/CarrotCrate.gd" id="12_6xpyr"]
 [ext_resource type="Texture2D" uid="uid://bl6d780qfb23v" path="res://Assets/mop_holder.png" id="12_bha6a"]
 [ext_resource type="Texture2D" uid="uid://dhmybgae1psy7" path="res://Assets/buckit.png" id="12_jki6d"]
 [ext_resource type="Script" path="res://Scripts/ScriptedDialogue.gd" id="12_ldvwn"]
 [ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="12_lequn"]
-[ext_resource type="Texture2D" uid="uid://bn8kufy51b45c" path="res://Assets/kitchen_view.png" id="14_6kd7p"]
-[ext_resource type="Script" path="res://KitchenView.gd" id="15_0rewk"]
 [ext_resource type="Texture2D" uid="uid://d3keyrxend7m1" path="res://Assets/quick_bg.png" id="16_g7fro"]
-[ext_resource type="Texture2D" uid="uid://bsfofvqbtgy84" path="res://Assets/cauldron_holder_3.png" id="17_mle8f"]
-[ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="18_v2y3r"]
+[ext_resource type="PackedScene" uid="uid://c0iiahg3gkjv0" path="res://Kitchen.tscn" id="17_v6k0s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
-size = Vector2(137, 207)
+[sub_resource type="GDScript" id="GDScript_30r57"]
+script/source = "extends StaticBody2D
+
+@onready var player = get_tree().get_nodes_in_group(\"Player\")
+@onready var sprite = $Sprite
+
+func _interact():
+	for p in player:
+		p.has_crate_powerup = true
+
+func _on_area_player_entered(body):
+	sprite.modulate = Color.RED
+
+func _on_area_body_exited(body):
+	sprite.modulate = Color.WHITE
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xec66"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_axchr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbcwk"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02jr0"]
+size = Vector2(137.156, 648.771)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
+size = Vector2(137, 207)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -40,16 +53,16 @@ script = ExtResource("12_ldvwn")
 scripted_dialogue = 1
 
 [node name="Player" parent="." instance=ExtResource("2_xitt2")]
+position = Vector2(402, 298)
 collision_layer = 32769
 collision_mask = 32769
-motion_mode = 1
 slide_on_ceiling = false
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(-13, -44)
 
 [node name="Table Set" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(99, 84)
 
 [node name="Table" parent="Table Set" instance=ExtResource("11_1y6eo")]
 
@@ -86,7 +99,7 @@ sprite_position = Vector2(-4, -110)
 
 [node name="Table Set 3" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-176, 251)
+position = Vector2(302, 342)
 
 [node name="Table" parent="Table Set 3" instance=ExtResource("11_1y6eo")]
 
@@ -103,7 +116,7 @@ sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 4" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-171, -229)
+position = Vector2(-163, -195)
 
 [node name="Table" parent="Table Set 4" instance=ExtResource("11_1y6eo")]
 
@@ -121,7 +134,7 @@ sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 5" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-575, 56)
+position = Vector2(-421, 48)
 
 [node name="Table" parent="Table Set 5" instance=ExtResource("11_1y6eo")]
 
@@ -138,7 +151,7 @@ sprite_position = Vector2(-1, -110)
 
 [node name="Table Set 6" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-599, 359)
+position = Vector2(-173, 344)
 
 [node name="Table" parent="Table Set 6" instance=ExtResource("11_1y6eo")]
 
@@ -155,7 +168,7 @@ texture = ExtResource("6_w4eis")
 sprite_position = Vector2(-1, -110)
 
 [node name="MopBucket" type="StaticBody2D" parent="."]
-position = Vector2(735, -330)
+position = Vector2(745, -285)
 collision_layer = 32769
 collision_mask = 32769
 script = ExtResource("10_yudja")
@@ -187,8 +200,8 @@ texture = ExtResource("12_jki6d")
 flip_h = true
 
 [node name="CarrotCrate" type="StaticBody2D" parent="."]
-position = Vector2(-671, -265)
-script = ExtResource("12_6xpyr")
+position = Vector2(-630, -254)
+script = SubResource("GDScript_30r57")
 
 [node name="Sprite" type="Sprite2D" parent="CarrotCrate"]
 position = Vector2(-49, -86)
@@ -218,21 +231,8 @@ script = ExtResource("10_2yc3s")
 radius_x = 256
 radius_y = 128
 
-[node name="KitchenEntrance" type="Node2D" parent="."]
-position = Vector2(766, 276)
-script = ExtResource("9_lmk24")
-
-[node name="Area" type="Area2D" parent="KitchenEntrance"]
-collision_layer = 32784
-collision_mask = 32768
-
-[node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance/Area"]
-position = Vector2(-48.5, 4.5)
-shape = SubResource("RectangleShape2D_s5htm")
-
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(-14, -44)
 texture = ExtResource("16_g7fro")
 
 [node name="Walls" type="StaticBody2D" parent="Background"]
@@ -245,19 +245,33 @@ position = Vector2(0, 200)
 shape = SubResource("WorldBoundaryShape2D_xec66")
 
 [node name="LeftWall" type="CollisionShape2D" parent="Background/Walls"]
-position = Vector2(-350, 0)
+position = Vector2(-354, 0)
 rotation = 1.57079
 shape = SubResource("WorldBoundaryShape2D_axchr")
 
 [node name="TopWall" type="CollisionShape2D" parent="Background/Walls"]
-position = Vector2(0, -174)
-rotation = 3.12414
+position = Vector2(0, -175)
+rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_axchr")
 
 [node name="RightWall" type="CollisionShape2D" parent="Background/Walls"]
-position = Vector2(332, 1.52588e-05)
-rotation = 4.69764
-shape = SubResource("WorldBoundaryShape2D_axchr")
+position = Vector2(398.557, -48.7898)
+shape = SubResource("RectangleShape2D_02jr0")
+
+[node name="KitchenEntrance" type="Node2D" parent="."]
+position = Vector2(766, 276)
+script = ExtResource("9_lmk24")
+
+[node name="Area" type="Area2D" parent="KitchenEntrance"]
+collision_layer = 32784
+collision_mask = 32768
+
+[node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance/Area"]
+position = Vector2(-48.5, 4.5)
+shape = SubResource("RectangleShape2D_s5htm")
+
+[node name="Kitchen" parent="." instance=ExtResource("17_v6k0s")]
+position = Vector2(1422, 330)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 
@@ -338,56 +352,5 @@ scroll_active = false
 scroll_following = true
 visible_characters_behavior = 2
 
-[node name="KitchenView" type="Control" parent="CanvasLayer" groups=["KitchenView"]]
-visible = false
-z_index = 1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("15_0rewk")
-
-[node name="Filler" type="Panel" parent="CanvasLayer/KitchenView"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bbcwk")
-
-[node name="Background" type="TextureRect" parent="CanvasLayer/KitchenView"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("14_6kd7p")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="ExitButton" type="TextureButton" parent="CanvasLayer/KitchenView"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 93.0
-offset_right = 217.0
-offset_bottom = 535.0
-
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/KitchenView"]
-layout_mode = 0
-offset_left = 846.0
-offset_top = 348.0
-offset_right = 1036.0
-offset_bottom = 541.0
-texture_normal = ExtResource("17_mle8f")
-texture_hover = ExtResource("18_v2y3r")
-
 [connection signal="body_entered" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_player_entered"]
 [connection signal="body_exited" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_body_exited"]
-[connection signal="pressed" from="CanvasLayer/KitchenView/ExitButton" to="CanvasLayer/KitchenView" method="_on_exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/KitchenView/TextureButton" to="CanvasLayer/KitchenView" method="_on_cauldron_pressed"]
