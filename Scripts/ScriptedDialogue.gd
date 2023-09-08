@@ -15,7 +15,7 @@ func get_character(find_character: DialogueData.Character):
 			continue
 		if character.npc == find_character:
 			return character
-	push_error("Character %s was not found in the Scene Tree." % find_character)
+	push_error("Character %s was not found in the Scene Tree." % DialogueData.Character.keys()[find_character])
 	assert(false)
 
 func _ready():

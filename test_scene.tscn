@@ -51,7 +51,7 @@ y_sort_enabled = true
 
 [node name="Scripted Dialogue" type="Node2D" parent="."]
 script = ExtResource("12_ldvwn")
-scripted_dialogue = 1
+scripted_dialogue = 2
 
 [node name="Player" parent="." instance=ExtResource("2_xitt2")]
 position = Vector2(-571, 404)
@@ -87,13 +87,14 @@ position = Vector2(345, -168)
 
 [node name="NPC" parent="Table Set 2" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
+npc = 6
 flip_h = true
 texture = ExtResource("6_w4eis")
 sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set 2" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
-npc = 1
+npc = 5
 flip_h = true
 texture = ExtResource("11_capwe")
 sprite_position = Vector2(-4, -110)
@@ -357,6 +358,9 @@ visible_characters_behavior = 2
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_p6n04")
 autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.172549, 0.172549, 0.172549, 1)
 
 [connection signal="body_entered" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_player_entered"]
 [connection signal="body_exited" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_body_exited"]

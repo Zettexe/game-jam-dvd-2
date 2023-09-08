@@ -1,58 +1,77 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0iiahg3gkjv0"]
+[gd_scene load_steps=27 format=3 uid="uid://c0iiahg3gkjv0"]
 
-[ext_resource type="Script" path="res://Kitchen.gd" id="1_0718a"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_j8sqa"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_2qybo"]
+[ext_resource type="Script" path="res://Scripts/Parallax.gd" id="2_4ls4d"]
 [ext_resource type="Texture2D" uid="uid://cx8fgbmbalwao" path="res://Assets/Restoparallax.png" id="2_gmg2o"]
 [ext_resource type="Script" path="res://Scripts/Cauldron.gd" id="3_bphy0"]
 [ext_resource type="Texture2D" uid="uid://dc58rhqqrnbsw" path="res://Assets/BgOneKitchen.png" id="3_cgnrw"]
 [ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="3_epug8"]
+[ext_resource type="Texture2D" uid="uid://hwaphwso2qbf" path="res://Assets/fgdoorLeft.png" id="5_0cmda"]
 [ext_resource type="Script" path="res://Scripts/KitchenDoor.gd" id="5_ml54r"]
 [ext_resource type="Texture2D" uid="uid://djwhncmngm6dd" path="res://Assets/cauldron_progress_bar.png" id="5_wqn6w"]
+[ext_resource type="Texture2D" uid="uid://c8u4aqukir2sl" path="res://Assets/fgRightSide.png" id="6_by274"]
 [ext_resource type="Texture2D" uid="uid://ymnpg28f265e" path="res://Assets/progress_full.png" id="6_on2pw"]
 [ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="7_ploun"]
 [ext_resource type="Script" path="res://Scripts/CarrotBox.gd" id="8_tkuu5"]
 [ext_resource type="Texture2D" uid="uid://dbhbeyf7k72vh" path="res://Assets/carrotfull.png" id="11_845to"]
 [ext_resource type="Texture2D" uid="uid://il7cv83wxad0" path="res://Assets/progress_carrot.png" id="12_xydlk"]
+[ext_resource type="Texture2D" uid="uid://o63cwn11dlq8" path="res://Assets/filler_furniture.png" id="16_t5c3s"]
+[ext_resource type="Texture2D" uid="uid://bh3hue44vfsq1" path="res://Assets/fgcarrot.png" id="17_u4wem"]
+[ext_resource type="Texture2D" uid="uid://urbktl3j0umj" path="res://Assets/bucketchan.png" id="19_5dq15"]
+[ext_resource type="Texture2D" uid="uid://t1k1241i1de" path="res://Assets/placeholder_torch_on.png" id="19_brjxt"]
+[ext_resource type="Texture2D" uid="uid://dk31cmg4hl8a5" path="res://Assets/lightmask.png" id="20_1hxgt"]
+[ext_resource type="Texture2D" uid="uid://dtyo0ths1jemv" path="res://Assets/kitchenfurniture.png" id="20_j4vol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frgwk"]
-size = Vector2(109, 149)
+size = Vector2(135, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvk08"]
+size = Vector2(150, 147)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqko1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_premv"]
 size = Vector2(89, 357)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvk08"]
-size = Vector2(43, 341)
-
 [node name="Kitchen" type="Node2D" groups=["Kitchen"]]
-script = ExtResource("1_0718a")
 
 [node name="KitchenCamera" type="Camera2D" parent="." groups=["KitchenCamera"]]
 zoom = Vector2(2.6, 2.6)
-limit_left = -370
-limit_right = 973
+limit_left = -371
+limit_right = 971
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("1_j8sqa")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Parallax" type="Node2D" parent="."]
+script = ExtResource("2_4ls4d")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Restoparallax" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(300, 1)
+[node name="Background" type="Sprite2D" parent="Parallax"]
+position = Vector2(300, 0)
 texture = ExtResource("2_gmg2o")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(300, 0)
+[node name="Main" type="Sprite2D" parent="Parallax"]
+position = Vector2(300, 1)
 texture = ExtResource("3_cgnrw")
 
+[node name="Foreground" type="Node2D" parent="Parallax"]
+z_index = 1
+
+[node name="FgdoorLeft" type="Sprite2D" parent="Parallax/Foreground"]
+position = Vector2(-301, 15)
+texture = ExtResource("5_0cmda")
+
+[node name="Fgcarrot" type="Sprite2D" parent="Parallax/Foreground"]
+position = Vector2(718.5, 137)
+texture = ExtResource("17_u4wem")
+
+[node name="FgRightSide" type="Sprite2D" parent="Parallax/Foreground"]
+position = Vector2(1170, 0)
+texture = ExtResource("6_by274")
+
 [node name="Cauldron" type="Node2D" parent="."]
-position = Vector2(0, 188)
+position = Vector2(308, 185)
 script = ExtResource("3_bphy0")
 
 [node name="Sprite" type="Sprite2D" parent="Cauldron" groups=["CauldronSprite"]]
@@ -75,8 +94,62 @@ collision_layer = 32784
 collision_mask = 32768
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Cauldron/Area"]
-position = Vector2(-3.5, -73.5)
+position = Vector2(-5.5, -73.5)
 shape = SubResource("RectangleShape2D_frgwk")
+
+[node name="CarrotBox" type="Node2D" parent="." groups=["CarrotBox"]]
+position = Vector2(516, 112)
+script = ExtResource("8_tkuu5")
+
+[node name="Boxplaceholder2" type="Sprite2D" parent="CarrotBox"]
+texture = ExtResource("7_ploun")
+
+[node name="Carrotfull" type="Sprite2D" parent="CarrotBox"]
+position = Vector2(-6, -162)
+texture = ExtResource("11_845to")
+region_enabled = true
+region_rect = Rect2(0, 173, 120, 0)
+
+[node name="ProgressCarrot" type="Sprite2D" parent="CarrotBox"]
+position = Vector2(-6, -162)
+texture = ExtResource("12_xydlk")
+region_rect = Rect2(0, 0, 122, 155)
+
+[node name="Area" type="Area2D" parent="CarrotBox"]
+collision_layer = 32784
+collision_mask = 32768
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CarrotBox/Area"]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_gvk08")
+
+[node name="FillerFurniture" type="Sprite2D" parent="."]
+position = Vector2(-83, 118)
+texture = ExtResource("16_t5c3s")
+
+[node name="Bucketchan" type="Sprite2D" parent="."]
+position = Vector2(895, 125)
+texture = ExtResource("19_5dq15")
+
+[node name="Kitchenfurniture" type="Sprite2D" parent="."]
+position = Vector2(710, 75)
+texture = ExtResource("20_j4vol")
+
+[node name="PlaceholderTorchOn" type="Sprite2D" parent="."]
+position = Vector2(704, -107)
+texture = ExtResource("19_brjxt")
+
+[node name="PointLight2D" type="PointLight2D" parent="PlaceholderTorchOn"]
+color = Color(1, 0.654902, 0.356863, 1)
+texture = ExtResource("20_1hxgt")
+
+[node name="PlaceholderTorchOn2" type="Sprite2D" parent="."]
+position = Vector2(-244, -102)
+texture = ExtResource("19_brjxt")
+
+[node name="PointLight2D" type="PointLight2D" parent="PlaceholderTorchOn2"]
+color = Color(1, 0.654902, 0.356863, 1)
+texture = ExtResource("20_1hxgt")
 
 [node name="Player" parent="." groups=["KitchenPlayer"] instance=ExtResource("2_2qybo")]
 position = Vector2(-260, 176)
@@ -104,28 +177,7 @@ collision_mask = 32768
 position = Vector2(-27.5, -6.5)
 shape = SubResource("RectangleShape2D_premv")
 
-[node name="CarrotBox" type="Node2D" parent="." groups=["CarrotBox"]]
-position = Vector2(297, 112)
-script = ExtResource("8_tkuu5")
-
-[node name="Boxplaceholder2" type="Sprite2D" parent="CarrotBox"]
-texture = ExtResource("7_ploun")
-
-[node name="Carrotfull" type="Sprite2D" parent="CarrotBox"]
-position = Vector2(-6, -162)
-texture = ExtResource("11_845to")
-region_enabled = true
-region_rect = Rect2(0, 173, 120, 0)
-
-[node name="ProgressCarrot" type="Sprite2D" parent="CarrotBox"]
-position = Vector2(-6, -162)
-texture = ExtResource("12_xydlk")
-region_rect = Rect2(0, 0, 122, 155)
-
-[node name="Area" type="Area2D" parent="CarrotBox"]
-collision_layer = 32784
-collision_mask = 32768
-
-[node name="CollisionShape" type="CollisionShape2D" parent="CarrotBox/Area"]
-position = Vector2(-104.5, -76.5)
-shape = SubResource("RectangleShape2D_gvk08")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(271, 66)
+color = Color(1, 0.654902, 0.356863, 1)
+texture = ExtResource("20_1hxgt")

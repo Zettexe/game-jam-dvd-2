@@ -8,12 +8,14 @@ const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 @onready var canvas_layer = get_tree().get_first_node_in_group("CanvasLayer")
 @onready var spawn_area = $Area/CollisionShape
 @onready var candle = $Candle
+@onready var point_light = $PointLight2D
 
 var npcs = []
 var candle_lit = true:
 	set(value):
 		candle_lit = value
 		candle.frame = int(value)
+		point_light.enabled = value
 		for npc in npcs:
 			npc.has_light = value
 			if value:

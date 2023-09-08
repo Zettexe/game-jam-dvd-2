@@ -1,6 +1,6 @@
 extends Node
 
-enum Character { MC, WITCH, NARRATOR, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS } # Rename this to the characters name
+enum Character { MC, WITCH, NARRATOR, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS }
 
 const CHARACTER_NAME = {
 	Character.MC: "Natalia",
@@ -25,6 +25,7 @@ const CHATTER = [
 ]
 
 enum ScriptedDialogue { NONE, INTRO, BATKNIFE1, BAKERY1 }
+
 const DARKNESS_CHATTER = [
 	"Hey! Who turned out the lights?",
 	"Why is it so dark all of a sudden...",
@@ -38,8 +39,6 @@ const DARKNESS_CHATTER = [
     "We need light fast; it's too dark to see.",
     "Let's stay calm and figure out this sudden darkness."
 ]
-
-enum ScriptedDialogue { NONE, SCRIPTED_DIALOGUE_NAME, SCRIPTED_DIALOGUE_2_NAME }
 
 const SCRIPTED_DIALOGUE = {
 	ScriptedDialogue.INTRO: [
