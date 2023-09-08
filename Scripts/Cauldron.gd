@@ -20,8 +20,6 @@ func _interact():
 func _process(delta):
 	progress += delta * 2
 	
-	print(progress / origin_rect.position.y * 100)
-	
 	progress_bar.region_rect.position.y = origin_rect.position.y - progress
 	progress_bar.region_rect.size.y = origin_rect.size.y + progress
 	progress_bar.position.y = origin_pos_y + origin_rect.position.y / 2 - progress / 2

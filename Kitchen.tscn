@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0iiahg3gkjv0"]
+[gd_scene load_steps=19 format=3 uid="uid://c0iiahg3gkjv0"]
 
-[ext_resource type="Texture2D" uid="uid://r8d7b1gepitj" path="res://Assets/better_layout.png" id="1_f0kdv"]
+[ext_resource type="Script" path="res://Kitchen.gd" id="1_0718a"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_j8sqa"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_2qybo"]
+[ext_resource type="Texture2D" uid="uid://cx8fgbmbalwao" path="res://Assets/Restoparallax.png" id="2_gmg2o"]
 [ext_resource type="Script" path="res://Scripts/Cauldron.gd" id="3_bphy0"]
+[ext_resource type="Texture2D" uid="uid://dc58rhqqrnbsw" path="res://Assets/BgOneKitchen.png" id="3_cgnrw"]
 [ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="3_epug8"]
 [ext_resource type="Script" path="res://Scripts/KitchenDoor.gd" id="5_ml54r"]
 [ext_resource type="Texture2D" uid="uid://djwhncmngm6dd" path="res://Assets/cauldron_progress_bar.png" id="5_wqn6w"]
@@ -25,18 +27,29 @@ size = Vector2(89, 357)
 size = Vector2(43, 341)
 
 [node name="Kitchen" type="Node2D" groups=["Kitchen"]]
+script = ExtResource("1_0718a")
 
 [node name="KitchenCamera" type="Camera2D" parent="." groups=["KitchenCamera"]]
 zoom = Vector2(2.6, 2.6)
 limit_left = -370
-limit_right = 368
+limit_right = 973
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("1_j8sqa")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Restoparallax" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(300, 1)
+texture = ExtResource("2_gmg2o")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(300, 0)
-texture = ExtResource("1_f0kdv")
+texture = ExtResource("3_cgnrw")
 
 [node name="Cauldron" type="Node2D" parent="."]
 position = Vector2(0, 188)
@@ -72,7 +85,7 @@ lock_velocity = true
 disable_input = true
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(-594, 0)
+position = Vector2(161, 0)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(809, 0)
@@ -107,6 +120,7 @@ region_rect = Rect2(0, 173, 120, 0)
 [node name="ProgressCarrot" type="Sprite2D" parent="CarrotBox"]
 position = Vector2(-6, -162)
 texture = ExtResource("12_xydlk")
+region_rect = Rect2(0, 0, 122, 155)
 
 [node name="Area" type="Area2D" parent="CarrotBox"]
 collision_layer = 32784

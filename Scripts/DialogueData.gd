@@ -25,6 +25,21 @@ const CHATTER = [
 ]
 
 enum ScriptedDialogue { NONE, INTRO, BATKNIFE1, BAKERY1 }
+const DARKNESS_CHATTER = [
+	"Hey! Who turned out the lights?",
+	"Why is it so dark all of a sudden...",
+    "This is surreal... from light to nothingness.",
+    "This darkness feels oppressive, like it's invading my soul.",
+    "How can it be this dark, I can't even see my hand?",
+    "What happened? It's suddenly pitch black!",
+    "Can anyone see? It feels like we've been swallowed by darkness.",
+    "So strange, from light to darkness just like that.",
+    "I wasn't ready for this sudden plunge into night.",
+    "We need light fast; it's too dark to see.",
+    "Let's stay calm and figure out this sudden darkness."
+]
+
+enum ScriptedDialogue { NONE, SCRIPTED_DIALOGUE_NAME, SCRIPTED_DIALOGUE_2_NAME }
 
 const SCRIPTED_DIALOGUE = {
 	ScriptedDialogue.INTRO: [

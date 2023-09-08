@@ -10,10 +10,14 @@ const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 @onready var candle = $Candle
 
 var npcs = []
-var candle_lit = false:
+var candle_lit = true:
 	set(value):
 		candle_lit = value
 		candle.frame = int(value)
+		for npc in npcs:
+			npc.has_light = value
+			if value:
+				npc.emit_signal("light_returned")
 
 func _interact():
 	candle_lit = true
@@ -37,7 +41,7 @@ func _process(delta):
 	
 	var is_busy = false
 	for npc in npcs:
-		if npc.is_chattering or npc.scripted_waiting:
+		if npc.is_chattering or (npc.scripted_waiting and candle_lit):
 			is_busy = true
 			return
 	
@@ -47,7 +51,13 @@ func _process(delta):
 		var dialogue_node = FLOATING_DIALOGUE_REFERENCE.instantiate()
 		dialogue_node.position = position
 		canvas_layer.add_child(dialogue_node)
-		var dialogue_content = DialogueData.CHATTER[randi() % DialogueData.CHATTER.size()]
+		var dialogue_content
+		print(candle_lit)
+		if candle_lit:
+			dialogue_content = DialogueData.CHATTER[randi() % DialogueData.CHATTER.size()]
+		else:
+			dialogue_content = DialogueData.DARKNESS_CHATTER[randi() % DialogueData.DARKNESS_CHATTER.size()]
+		print(dialogue_content)
 		var selected_npc = npcs[randi() % npcs.size()]
 		dialogue_node.show_dialogue(dialogue_content, selected_npc.dialogue_size, selected_npc.get_screen_transform().origin + selected_npc.dialogue_offset)
 		await dialogue_node.done

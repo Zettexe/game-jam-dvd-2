@@ -20,10 +20,13 @@ var has_crate_powerup = false:
 	set(new_value):
 		if not has_mopping_powerup:
 			has_crate_powerup = new_value
-			crate_sprite.visible = new_value
+			crate_sprites.visible = new_value
+			normal_sprites.visible = !new_value
 
 @onready var sprites = $Sprites
-@onready var crate_sprite = $Sprites/Crate
+@onready var crate_sprites = $Sprites/Crate
+@onready var crate_idle_sprite = $Sprites/Crate/IdleSprite
+@onready var crate_run_sprite = $Sprites/Crate/RunSprite
 @onready var normal_sprites = $Sprites/Normal
 @onready var idle_sprite = $Sprites/Normal/IdleSprite
 @onready var run_sprite = $Sprites/Normal/RunSprite
@@ -32,11 +35,12 @@ var has_crate_powerup = false:
 @onready var mop_run_sprite = $Sprites/Mop/RunSprite
 
 func _ready():
-	crate_sprite.visible = has_crate_powerup
+	crate_sprites.visible = has_crate_powerup
 	mop_sprites.visible = has_mopping_powerup
-	normal_sprites.visible = !has_mopping_powerup
+	normal_sprites.visible = not has_mopping_powerup and not has_crate_powerup
 	run_sprite.play()
 	mop_run_sprite.play()
+	crate_run_sprite.play()
 	if disable_input:
 		disable_interaction()
 
@@ -81,6 +85,8 @@ func _physics_process(delta):
 		run_sprite.visible = true
 		mop_idle_sprite.visible = false
 		mop_run_sprite.visible = true
+		crate_idle_sprite.visible = false
+		crate_run_sprite.visible = true
 		velocity = direction * velocity_modifier * SPEED
 	else:
 		idle_sprite.visible = true

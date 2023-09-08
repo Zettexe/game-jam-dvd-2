@@ -31,6 +31,8 @@ func _ready():
 	
 	for npc in DialogueData.SCRIPTED_DIALOGUE[scripted_dialogue]:
 		var npc_node = get_character(npc.character)
+		if not npc_node.has_light:
+			await npc_node.light_returned
 		if npc_node.is_chattering:
 			await npc_node.dialogue_ready
 		var current_dialogue_node = FLOATING_DIALOGUE_REFERENCE.instantiate()

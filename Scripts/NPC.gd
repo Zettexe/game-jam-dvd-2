@@ -2,6 +2,7 @@
 extends StaticBody2D
 
 signal dialogue_ready
+signal light_returned
 
 @export var npc_name: String
 @export var npc_content: String
@@ -36,6 +37,7 @@ signal dialogue_ready
 
 var is_chattering = false
 var scripted_waiting = false
+var has_light = true
 
 func _ready():
 	sprite_node.position = sprite_position

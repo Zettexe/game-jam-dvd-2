@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://djevw1s1hmioy"]
+[gd_scene load_steps=15 format=3 uid="uid://djevw1s1hmioy"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_w58p0"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="3_0x28r"]
 [ext_resource type="Texture2D" uid="uid://cxsbk8sud4gvw" path="res://Assets/mcidle1.png" id="3_lsceu"]
 [ext_resource type="Texture2D" uid="uid://jlnkbidgrc3h" path="res://Assets/mcrun1.png" id="4_cqqm8"]
 [ext_resource type="Texture2D" uid="uid://p3grkckngccg" path="res://Assets/mcmopidle1.png" id="4_vfwr5"]
-[ext_resource type="Texture2D" uid="uid://sbmq662f3686" path="res://Assets/boxplaceholderone.png" id="5_b13w5"]
 [ext_resource type="Texture2D" uid="uid://cjfy83vjuxdbe" path="res://Assets/mcrun2.png" id="5_fe6s8"]
 [ext_resource type="Texture2D" uid="uid://cvj7ybi8potv1" path="res://Assets/mcmoprun1.png" id="5_h4dd1"]
 [ext_resource type="Texture2D" uid="uid://bv5pkuav3v7j" path="res://Assets/mcmoprun2.png" id="6_cnxbu"]
+[ext_resource type="Texture2D" uid="uid://bm8vqg4rbocx0" path="res://Assets/headcrateidle.png" id="9_qr0nt"]
+[ext_resource type="Texture2D" uid="uid://b0ew80avj511s" path="res://Assets/headcrate_one.png" id="10_22bpf"]
+[ext_resource type="Texture2D" uid="uid://cyf4368vl7fdk" path="res://Assets/headcrate_run_2.png" id="11_bihvh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1k0t1"]
 animations = [{
@@ -32,6 +34,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_cnxbu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dau0j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_22bpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bihvh")
 }],
 "loop": true,
 "name": &"default",
@@ -83,10 +99,16 @@ position = Vector2(-6, -111)
 sprite_frames = SubResource("SpriteFrames_kckor")
 frame_progress = 0.921438
 
-[node name="Crate" type="Sprite2D" parent="Sprites"]
-visible = false
-position = Vector2(0, -240)
-texture = ExtResource("5_b13w5")
+[node name="Crate" type="Node2D" parent="Sprites"]
+
+[node name="IdleSprite" type="Sprite2D" parent="Sprites/Crate"]
+position = Vector2(-7, -162)
+texture = ExtResource("9_qr0nt")
+
+[node name="RunSprite" type="AnimatedSprite2D" parent="Sprites/Crate"]
+position = Vector2(-20, -160)
+sprite_frames = SubResource("SpriteFrames_dau0j")
+frame_progress = 0.791885
 
 [connection signal="area_entered" from="CollisionShape/Area" to="." method="_on_interactable_area_entered"]
 [connection signal="area_exited" from="CollisionShape/Area" to="." method="_on_interactable_area_exited"]
