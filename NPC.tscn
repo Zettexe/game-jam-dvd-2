@@ -7,6 +7,7 @@
 position = Vector2(45, -17)
 collision_layer = 17
 script = ExtResource("1_73cwi")
+dialogue_size = Vector2(200, 85)
 dialogue_offset = Vector2(0, -150)
 sprite_position = Vector2(0, 0)
 

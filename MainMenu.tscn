@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu4sqal4eevky"]
+[gd_scene load_steps=12 format=3 uid="uid://cu4sqal4eevky"]
 
 [ext_resource type="Texture2D" uid="uid://cjrnpquo34dos" path="res://Assets/cutting_board.png" id="1_ceqey"]
+[ext_resource type="Script" path="res://Test.gd" id="1_kr7ow"]
 [ext_resource type="Script" path="res://MenuItems.gd" id="2_uvttq"]
 [ext_resource type="FontFile" uid="uid://bt4bbwg6d7703" path="res://Assets/Rubik/static/Rubik-Medium.ttf" id="3_npuvc"]
 [ext_resource type="Texture2D" uid="uid://ddkde2fx2sciu" path="res://Assets/f1.png" id="4_umhbe"]
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kr7ow")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
