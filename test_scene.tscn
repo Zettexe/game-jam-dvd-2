@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=31 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c0iiahg3gkjv0" path="res://Kitchen.tscn" id="17_v6k0s"]
 [ext_resource type="PackedScene" uid="uid://dasyh4qui0q8" path="res://Dialogue.tscn" id="18_7nnjk"]
 [ext_resource type="AudioStream" uid="uid://d1sf7cq44378s" path="res://Assets/tavern.ogg" id="18_p6n04"]
+[ext_resource type="Texture2D" uid="uid://b6b1i0wtq6k60" path="res://Assets/Mehwitch.png" id="19_fih6i"]
 [ext_resource type="Script" path="res://Scripts/MainInit.gd" id="20_l7gun"]
 
 [sub_resource type="GDScript" id="GDScript_30r57"]
@@ -68,7 +69,7 @@ script = ExtResource("12_ldvwn")
 scripted_dialogue = 2
 
 [node name="Player" parent="." instance=ExtResource("2_xitt2")]
-position = Vector2(-571, 404)
+position = Vector2(-458, 394)
 collision_layer = 32769
 collision_mask = 32769
 slide_on_ceiling = false
@@ -299,6 +300,11 @@ shape = SubResource("RectangleShape2D_s5htm")
 [node name="Kitchen" parent="." instance=ExtResource("17_v6k0s")]
 position = Vector2(-270, 1698)
 
+[node name="Witch" type="Sprite2D" parent="." groups=["Witch"]]
+position = Vector2(-614, 290)
+texture = ExtResource("19_fih6i")
+flip_h = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 process_mode = 3
 
@@ -311,8 +317,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("20_l7gun")
 
-[node name="TextureRect" type="Panel" parent="CanvasLayer/Init"]
-visible = false
+[node name="TextureRect" type="Panel" parent="CanvasLayer/Init" groups=["Intro"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

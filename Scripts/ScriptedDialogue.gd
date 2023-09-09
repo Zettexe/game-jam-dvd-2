@@ -22,6 +22,13 @@ func _ready():
 	if scripted_dialogue == DialogueData.ScriptedDialogue.NONE:
 		return
 	
+	# Damn this code ugly as hell fix it later
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
+	while get_tree().paused:
+		await get_tree().process_frame
+	
 	await get_tree().create_timer(start_at_seconds).timeout
 	
 	for npc in DialogueData.SCRIPTED_DIALOGUE[scripted_dialogue]:

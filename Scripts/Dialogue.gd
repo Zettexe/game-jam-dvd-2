@@ -28,6 +28,8 @@ func _ready():
 
 # Change to more robust inputs later
 func show_dialogue(npc_name: String, text: String):
+	if not npc_name:
+		name_label.visible = false
 	name_label.text = npc_name
 	content_node.text = text
 	content_node.visible_characters = 0

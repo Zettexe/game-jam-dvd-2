@@ -48,28 +48,28 @@ const SCRIPTED_DIALOGUE = {
 	ScriptedDialogue.INTRO: [ # Outside
 		{ "character": Character.MC, "content": "(So... This is the Cauldron. Alright...)" },
 		{ "character": Character.MC, "content": "(Now that mom's gone, I gotta work hard.)
-												(Can't live without money, after all...)
-												(And we sold the farm to pay for the meds. Can't live off that either...)" },
+(Can't live without money, after all...)
+(And we sold the farm to pay for the meds. Can't live off that either...)" },
 		{ "character": Character.MC, "content": "(Ah, come on, Nat. It's just some innwork. How hard could it be?)" },
 		{ "character": Character.MC, "content": "(Here goes nothing.)" },
 		{ "character": Character.NARRATOR, "content": "..." }, #Fade to black
 		{ "character": Character.NARRATOR, "content": "Some months later..." }, # Inside
 		{ "character": Character.MC, "content": "(Sigh. Another day of work. Another day of mopping the floor, and stirring that damn pot, and... Ugh.)
-												(Dealing with customers.)" },
+(Dealing with customers.)" },
 		{ "character": Character.WITCH, "content": "Heyyyyy! Girlie! [Hic] Bring me 'nother round! ...And make it frothy, and fast!" },
 		{ "character": Character.MC, "content": "...Ma'am. It's ten in the morning. That's the twelfth—" },
 		{ "character": Character.WITCH, "content": "Silence! Howww dare you? You think you're better than me, don't you? Well I'll show you! No one gets to tell me when to shtop! If I want a damn beer I will get it myshelf!" },
 		{ "character": Character.MC, "content": "(Why do I bother...) Right, ma'am. I'll get you—" },
 		{ "character": Character.WITCH, "content": "Toooo late! I said, huh, I'll get it myself! BEGONE!" },
 		{ "character": Character.NARRATOR, "content": "The witch slams her cane into the wooden floor. A sudden gust of wind blows from its tip, the ground shaking beneath Natalia's feet. The commotion grabs the attention of the few patrons that hadn't already turned for the witch's yelling.
-													It all happens in an instant. The air feels electrified, while a purple glyph of arcane origin makes for a new backdrop for the drunk, albeit now imposing, witch.
-													There's a sudden blinding light emanating from the top of her staff, followed by an eerie ringing sound. The light focuses on a single point on the staff's tip, before turning into a beam, aimed straight at Natalia." },
+It all happens in an instant. The air feels electrified, while a purple glyph of arcane origin makes for a new backdrop for the drunk, albeit now imposing, witch.
+There's a sudden blinding light emanating from the top of her staff, followed by an eerie ringing sound. The light focuses on a single point on the staff's tip, before turning into a beam, aimed straight at Natalia." },
 		{ "character": Character.MC, "content": "(I can't breathe...)" },
 		{ "character": Character.MC, "content": "(My chest...!)
-												(It hurts...)" },
+(It hurts...)" },
 		{ "character": Character.NARRATOR, "content": "The patrons gasp, as the girl behind the counter had disappearead.
-													No one dared move — not even the few guards present. Who would oppose the town's witch Eliza, after all? Especially as she had no qualms about doing any of this in broad daylight.
-													Mostly because of the alcohol, for sure." },
+No one dared move — not even the few guards present. Who would oppose the town's witch Eliza, after all? Especially as she had no qualms about doing any of this in broad daylight.
+Mostly because of the alcohol, for sure." },
 		{ "character": Character.NARRATOR, "content": "The horrored murmurs changed into confused bewilderments when a small cat jumped on top of the counter. Did they always have pets in here?" },
 		{ "character": Character.MCAT, "content": "Meow?" },
 		{ "character": Character.WITCH, "content": "...Huh?" },
@@ -84,7 +84,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.MC, "content": "No, I don't... I don't drink." },
 		{ "character": Character.WITCH, "content": "Tsk! So you do think you're better than me!" },
 		{ "character": Character.MC, "content": "No ma'am... 
-												(She just tried to murder me, and I still have to deal with all this?)" },
+(She just tried to murder me, and I still have to deal with all this?)" },
 		{ "character": Character.WITCH, "content": "I was right to [hic] curse you! Hehehehe" },
 		{ "character": Character.MC, "content": "Curse?" },
 		{ "character": Character.WITCH, "content": "Yesh! Hehehehe Every night for the rest of your pitiful short life! You'll do my bidding! Ohohohoho!" },
@@ -92,7 +92,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.WITCH, "content": "What? You thought I just turned you into a cat for fun? I needed a new delivery girl! You'll do just fine!" },
 		{ "character": Character.MC, "content": "Wait, hold on—" },
 		{ "character": Character.WITCH, "content": "Ohohohoho!
-													See you tonight, pet!" },
+See you tonight, pet!" },
 		{ "character": Character.MC, "content": "You! Come back here—" },
 		{ "character": Character.WITCH, "content": "Toodles!" },
 		{ "character": Character.MC, "content": "..." },
@@ -105,7 +105,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GUARD, "content": "Okay gramps, hear me out." },
 		{ "character": Character.ELDERLY, "content": "Yeah?" },
 		{ "character": Character.GUARD, "content": "What do you think is the better weapon?
-													A bat or a knife?" },
+A bat or a knife?" },
 		{ "character": Character.ELDERLY, "content": "Huh... Depends. Who's fighting? With my bad back I would lose either way, hahaha!" },
 		{ "character": Character.GUARD, "content": "No, it... It doesn't matter... Okay, suppose it's a clone of you—" },
 		{ "character": Character.ELDERLY, "content": "Who made the clone?" },
@@ -147,7 +147,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GUARD, "content": "Yeah?" },
 		{ "character": Character.ELDERLY, "content": "Which one would you choose?" },
 		{ "character": Character.GUARD, "content": "Me?
-													I don't want to influence your answer. I'll tell you after you tell me." },
+I don't want to influence your answer. I'll tell you after you tell me." },
 		{ "character": Character.ELDERLY, "content": "Hahaha! It's a tough one!" },
 		{ "character": Character.GUARD, "content": "Sure is. Whole barracks was talking about it. Almost made a riot." },
 		{ "character": Character.ELDERLY, "content": "Is that what you young folks get to today? Argue all time?" },
@@ -189,7 +189,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.ELDERLY, "content": "Old man? Haha! I feel quite young right now!" },
 		{ "character": Character.GUARD, "content": "Alright, so something did happen." },
 		{ "character": Character.ELDERLY, "content": "Yes, yes, alright. I don't know why, but yesternight...
-													Wife made my favorite! She hadn't in years... So many, I lost count!" },
+Wife made my favorite! She hadn't in years... So many, I lost count!" },
 		{ "character": Character.GUARD, "content": "Your favorite?" },
 		{ "character": Character.ELDERLY, "content": "" },
 		{ "character": Character.GUARD, "content": "Huh uh. What was the occasion?" },
@@ -208,14 +208,14 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GUARD, "content": "Well. It's never too late to love, huh?" },
 		{ "character": Character.ELDERLY, "content": "Sure isn't! I'll even go get her some roses today! But for now, we feast!" },
 		{ "character": Character.GUARD, "content": "Alright, alright.
-													Now that you feel young again, though, maybe you'll be able to answer me." },
+		Now that you feel young again, though, maybe you'll be able to answer me." },
 		{ "character": Character.GUARD, "content": "What do you think is the better weapon?
-													A bat or a knife?" }
+		A bat or a knife?" }
 	],
 	ScriptedDialogue.BAKERY1: [
 		{ "character": Character.GRANDMA, "content": "Ah, sweetie... Did you remember to order the bread?"},
 		{ "character": Character.HUNTRESS, "content": "'Ma, we've been goin' to the same bakery for years now.
-													They know your order by heart."},
+They know your order by heart."},
 		{ "character": Character.GRANDMA, "content": "Do they, now... I still would like for you to place the order, though..."},
 		{ "character": Character.HUNTRESS, "content": "Why? It's always the same. A whole loaf. It's not even hard to remember."},
 		{ "character": Character.GRANDMA, "content": "Because, sweetie. That way they make it especially for us, and we know it will always be there."},
@@ -223,7 +223,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GRANDMA, "content": "Take it from me, sweetie. You never know when famine strikes."},
 		{ "character": Character.HUNTRESS, "content": "Wouldn't that just mean no bread for anyone? Doesn't matter if we order it."},
 		{ "character": Character.GRANDMA, "content": "Ah, you would think that... But the left over wheat will be gone fast, and people will buy more than they need...
-													And that leaves us with no bread."},
+And that leaves us with no bread."},
 		{ "character": Character.HUNTRESS, "content": "...Guess so. Wait, 'ma, you lived through that?"},
 		{ "character": Character.GRANDMA, "content": "Well, I'm alive, am I not?"},
 		{ "character": Character.HUNTRESS, "content": "Hah. I meant. You had that happen to you?"},
@@ -237,7 +237,7 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.HUNTRESS, "content": "It was a very cold winter."},
 		{ "character": Character.GRANDMA, "content": "Ah, yes! It was a very cold winter..."},
 		{ "character": Character.GRANDMA, "content": "We were getting ready to harvest that season's wheat...
-													When all of a sudden..."},
+When all of a sudden..."},
 		{ "character": Character.GRANDMA, "content": "Famine struck!"},
 		{ "character": Character.HUNTRESS, "content": "...Just like that?"},
 		{ "character": Character.GRANDMA, "content": "Well, I told you. It was a very cold winter."},
