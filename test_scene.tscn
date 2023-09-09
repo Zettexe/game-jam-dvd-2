@@ -367,7 +367,6 @@ flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 process_mode = 3
-visible = false
 
 [node name="Init" type="Control" parent="CanvasLayer" groups=["Init"]]
 z_index = 1
