@@ -25,7 +25,7 @@ const CHATTER = [
 	"I'm so hungry, I could eat a horse!"
 ]
 
-enum ScriptedDialogue { NONE, INTRO, BATKNIFE1, BAKERY1 }
+enum ScriptedDialogue { NONE, INTRO, BATKNIFE1, BATKNIFE2A, BATKNIFE2B, BAKERY1, BAKERY2A, BAKERY2B, NIGHT1, GOTCAT}
 
 const DARKNESS_CHATTER = [
 	"Hey! Who turned out the lights?",
@@ -42,15 +42,15 @@ const DARKNESS_CHATTER = [
 ]
 
 const SCRIPTED_DIALOGUE = {
-	ScriptedDialogue.INTRO: [
+	ScriptedDialogue.INTRO: [ # Outside
 		{ "character": Character.MC, "content": "(So... This is the Cauldron. Alright...)" },
 		{ "character": Character.MC, "content": "(Now that mom's gone, I gotta work hard.)
 												(Can't live without money, after all...)
 												(And we sold the farm to pay for the meds. Can't live off that either...)" },
 		{ "character": Character.MC, "content": "(Ah, come on, Nat. It's just some innwork. How hard could it be?)" },
 		{ "character": Character.MC, "content": "(Here goes nothing.)" },
-		{ "character": Character.NARRATOR, "content": "..." },
-		{ "character": Character.NARRATOR, "content": "Some months later..." },
+		{ "character": Character.NARRATOR, "content": "..." }, #Fade to black
+		{ "character": Character.NARRATOR, "content": "Some months later..." }, # Inside
 		{ "character": Character.MC, "content": "(Sigh. Another day of work. Another day of mopping the floor, and stirring that damn pot, and... Ugh.)
 												(Dealing with customers.)" },
 		{ "character": Character.WITCH, "content": "Heyyyyy! Girlie! [Hic] Bring me 'nother round! ...And make it frothy, and fast!" },
@@ -163,6 +163,52 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GUARD, "content": "..." },
 		{ "character": Character.GUARD, "content": "Forget it." },
 	],
+	ScriptedDialogue.BATKNIFE2A: [
+		{ "character": Character.GUARD, "content": "Huh..." },
+		{ "character": Character.GUARD, "content": "Weird, he's not here yet." },
+		{ "character": Character.GUARD, "content": "Wonder if he's sick or something." },
+		{ "character": Character.GUARD, "content": "Must have been yesternight's rain." },
+		{ "character": Character.GUARD, "content": "Old geezer has been sitting his arse on that chair since I joined the guards, ten years ago." },
+		{ "character": Character.GUARD, "content": "Well, at least ten years." },
+		{ "character": Character.GUARD, "content": "No way he just got bored of coming here!" },
+		{ "character": Character.GUARD, "content": "Nah, he's probably just in bed. Good ol' Genevieve must have made him a nice soup." },
+		{ "character": Character.GUARD, "content": "I should pass by his house later." },
+		{ "character": Character.GUARD, "content": "...After my turn. Which I'm spending here anyway! Gotta love being paid for doing nothing!" }
+	],
+	ScriptedDialogue.BATKNIFE2B: [
+		{ "character": Character.GUARD, "content": "Oi, gramps." },
+		{ "character": Character.ELDERLY, "content": "Yes?" },
+		{ "character": Character.GUARD, "content": "You seem chipper today. What's up?" },
+		{ "character": Character.ELDERLY, "content": "Haha! Nothing much, young boy!" },
+		{ "character": Character.GUARD, "content": "Really?" },
+		{ "character": Character.ELDERLY, "content": "Quite!" },
+		{ "character": Character.GUARD, "content": "Nah, something's happened. Spit it up, old man." },
+		{ "character": Character.ELDERLY, "content": "Old man? Haha! I feel quite young right now!" },
+		{ "character": Character.GUARD, "content": "Alright, so something did happen." },
+		{ "character": Character.ELDERLY, "content": "Yes, yes, alright. I don't know why, but yesternight...
+													Wife made my favorite! She hadn't in years... So many, I lost count!" },
+		{ "character": Character.GUARD, "content": "Your favorite?" },
+		{ "character": Character.ELDERLY, "content": "" },
+		{ "character": Character.GUARD, "content": "Huh uh. What was the occasion?" },
+		{ "character": Character.ELDERLY, "content": "I don't know, truly. She looked a bit weird, though..." },
+		{ "character": Character.GUARD, "content": "Weird how?" },
+		{ "character": Character.ELDERLY, "content": "She was staring at me! Like the time she tried to stab me! Hahaha!" },
+		{ "character": Character.GUARD, "content": "Huh. So...?" },
+		{ "character": Character.ELDERLY, "content": "Ah, right. When I was done eating, I felt... Like I was young again!" },
+		{ "character": Character.ELDERLY, "content": "I think I just had forgotten how much I loved my dear Genevieve." },
+		{ "character": Character.GUARD, "content": "Hah. So you'll stop wasting your time here?" },
+		{ "character": Character.ELDERLY, "content": "Oh, hells no. We need our spaces." },
+		{ "character": Character.GUARD, "content": "Your spaces?" },
+		{ "character": Character.ELDERLY, "content": "We'll be tight once we'll be buried at the graveyard, so we better have some space now! Hahaha!" },
+		{ "character": Character.GUARD, "content": "Gramps..." },
+		{ "character": Character.ELDERLY, "content": "But! I will leave earlier. I feel like seeing her again!" },
+		{ "character": Character.GUARD, "content": "Well. It's never too late to love, huh?" },
+		{ "character": Character.ELDERLY, "content": "Sure isn't! I'll even go get her some roses today! But for now, we feast!" },
+		{ "character": Character.GUARD, "content": "Alright, alright.
+													Now that you feel young again, though, maybe you'll be able to answer me." },
+		{ "character": Character.GUARD, "content": "What do you think is the better weapon?
+													A bat or a knife?" }
+	],
 	ScriptedDialogue.BAKERY1: [
 		{ "character": Character.GRANDMA, "content": "Ah, sweetie... Did you remember to order the bread?"},
 		{ "character": Character.HUNTRESS, "content": "'Ma, we've been goin' to the same bakery for years now.
@@ -215,5 +261,8 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GRANDMA, "content": "Yes, why, she said exactly the same!"},
 		{ "character": Character.HUNTRESS, "content": "..."}
 	],
-	
+	ScriptedDialogue.BAKERY2A: [],
+	ScriptedDialogue.BAKERY2B: [],
+	ScriptedDialogue.NIGHT1: [],
+	ScriptedDialogue.GOTCAT: []
 }
