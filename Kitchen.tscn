@@ -29,7 +29,8 @@ size = Vector2(135, 149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvk08"]
 size = Vector2(150, 147)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqko1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3i80"]
+size = Vector2(421, 138.999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_premv"]
 size = Vector2(89, 357)
@@ -161,9 +162,9 @@ disable_input = true
 position = Vector2(161, 0)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(809, 0)
+position = Vector2(880.5, 2.49989)
 rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_kqko1")
+shape = SubResource("RectangleShape2D_m3i80")
 
 [node name="Door" type="Node2D" parent="."]
 position = Vector2(-300, 16)
