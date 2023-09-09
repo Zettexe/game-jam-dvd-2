@@ -115,6 +115,10 @@ script = ExtResource("12_ldvwn")
 scripted_dialogue = 5
 start_at_seconds = 120
 
+[node name="Scripted Dialogue 3" type="Node2D" parent="." groups=["Scripted2"]]
+script = ExtResource("12_ldvwn")
+scripted_dialogue = 9
+
 [node name="Player" parent="." instance=ExtResource("2_xitt2")]
 position = Vector2(-458, 394)
 collision_layer = 32769
@@ -169,7 +173,7 @@ sprite_position = Vector2(-4, -110)
 
 [node name="Table Set 3" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(302, 342)
+position = Vector2(-125, -143)
 
 [node name="Table" parent="Table Set 3" instance=ExtResource("11_1y6eo")]
 
@@ -211,12 +215,13 @@ sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 5" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-125, -157)
+position = Vector2(311, 340)
 
 [node name="Table" parent="Table Set 5" instance=ExtResource("11_1y6eo")]
 
 [node name="NPC" parent="Table Set 5" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
+npc = 1
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 texture = ExtResource("11_capwe")
@@ -224,6 +229,7 @@ sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 5" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
+npc = 5
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 flip_h = true
