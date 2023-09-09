@@ -459,7 +459,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="IntroBackground" type="TextureRect" parent="CanvasLayer/Init" groups=["Intro"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -469,7 +468,6 @@ grow_vertical = 2
 texture = ExtResource("21_4iavb")
 
 [node name="Overlay" type="Panel" parent="CanvasLayer/Init" groups=["Overlay"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -481,7 +479,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_v41y3")
 
 [node name="Loading" type="TextureRect" parent="CanvasLayer/Init" groups=["Loading"]]
-visible = false
 layout_mode = 0
 offset_left = 1635.0
 offset_top = 890.0
