@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=47 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
 [ext_resource type="Texture2D" uid="uid://bbdmuf0whw526" path="res://Assets/dumbrug.png" id="2_6k04v"]
@@ -30,6 +30,12 @@
 [ext_resource type="Texture2D" uid="uid://cugjapbx8yl5u" path="res://Assets/Game_Over_option.png" id="22_ktwyf"]
 [ext_resource type="Texture2D" uid="uid://d1s68wjicc5sg" path="res://Assets/f3.png" id="23_v61eh"]
 [ext_resource type="Texture2D" uid="uid://d010c48jrfogk" path="res://Assets/f4.png" id="24_hppmw"]
+[ext_resource type="Texture2D" uid="uid://bb36om3esqoh" path="res://Assets/lebiflag.png" id="31_bg4wa"]
+[ext_resource type="Texture2D" uid="uid://bmncfq7h8sp50" path="res://Assets/Illustration38.png" id="32_gbkm3"]
+[ext_resource type="Texture2D" uid="uid://c6bncdnlqu042" path="res://Assets/gay.png" id="33_llpuj"]
+[ext_resource type="Texture2D" uid="uid://d1d7kdowe45mj" path="res://Assets/flag.png" id="34_cr28p"]
+[ext_resource type="Texture2D" uid="uid://bxwrdxk75d8gn" path="res://Assets/bi.png" id="35_p1pek"]
+[ext_resource type="Texture2D" uid="uid://cfhamfny6ecov" path="res://Assets/aro.png" id="36_pfm5a"]
 
 [sub_resource type="GDScript" id="GDScript_30r57"]
 script/source = "extends StaticBody2D
@@ -361,6 +367,7 @@ flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 process_mode = 3
+visible = false
 
 [node name="Init" type="Control" parent="CanvasLayer" groups=["Init"]]
 z_index = 1
@@ -373,6 +380,7 @@ grow_vertical = 2
 script = ExtResource("20_l7gun")
 
 [node name="GameOver" type="Panel" parent="CanvasLayer/Init" groups=["GameOver"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -420,7 +428,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="IntroBackground" type="TextureRect" parent="CanvasLayer/Init" groups=["Intro"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -430,7 +437,6 @@ grow_vertical = 2
 texture = ExtResource("21_4iavb")
 
 [node name="Overlay" type="Panel" parent="CanvasLayer/Init" groups=["Overlay"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -460,6 +466,39 @@ autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="Lebiflag" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-740, -364)
+texture = ExtResource("31_bg4wa")
+
+[node name="Illustration38" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-739, -33)
+texture = ExtResource("32_gbkm3")
+
+[node name="Gay" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-739, 255)
+texture = ExtResource("33_llpuj")
+
+[node name="Flag" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(749, -424)
+texture = ExtResource("34_cr28p")
+flip_h = true
+
+[node name="Bi" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(747, -34)
+texture = ExtResource("35_p1pek")
+flip_h = true
+
+[node name="Aro" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(748, 242)
+texture = ExtResource("36_pfm5a")
+flip_h = true
 
 [connection signal="body_entered" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_player_entered"]
 [connection signal="body_exited" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_body_exited"]
