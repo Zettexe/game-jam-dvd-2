@@ -6,6 +6,7 @@ signal loading_done_transition
 
 const SPEED = 5
 const NIGHT_REFERENCE = preload("res://Night.tscn")
+const MAIN_MENU_REFERENCE = "res://MainMenu.tscn"
 
 @onready var overlay = get_tree().get_first_node_in_group("Overlay")
 @onready var dialogue = get_tree().get_first_node_in_group("Dialogue")
@@ -16,6 +17,7 @@ const NIGHT_REFERENCE = preload("res://Night.tscn")
 @onready var loading = get_tree().get_first_node_in_group("Loading")
 @onready var scripted1 = get_tree().get_first_node_in_group("Scripted1")
 @onready var scripted2 = get_tree().get_first_node_in_group("Scripted2")
+@onready var joms = get_tree().get_first_node_in_group("Joms")
 
 var overlay_target = Color.TRANSPARENT
 var intro_target = Color.WHITE
@@ -32,13 +34,40 @@ func _ready():
 	if DialogueData.is_day_2:
 		if DialogueData.is_evil:
 			oldman.visible = false
-			oldman.get_parent().disabled_old_man = true
+			oldman.get_parent().get_node("Table").disabled_old_man = true
 			scripted1.scripted_dialogue = DialogueData.ScriptedDialogue.BATKNIFE2A
 			scripted2.scripted_dialogue = DialogueData.ScriptedDialogue.BAKERY2A
 		else:
 			scripted1.scripted_dialogue = DialogueData.ScriptedDialogue.BATKNIFE2B
 			scripted2.scripted_dialogue = DialogueData.ScriptedDialogue.BAKERY2B
 		witch.visible = false
+		intro.visible = false
+		get_tree().paused = false
+		start_timer = true
+		while not get_tree().paused and timer < timeout:
+			await get_tree().process_frame
+		
+		overlay_target = Color.WHITE
+		
+		await overlay_done_transition
+		
+		joms.visible = true
+		overlay_target = Color.TRANSPARENT
+		
+		await overlay_done_transition
+		
+		await get_tree().create_timer(5).timeout
+		
+		overlay_target = Color.WHITE
+		
+		await overlay_done_transition
+		
+		loading_target = Color.WHITE
+		await get_tree().create_timer(2).timeout
+		loading_target = Color.TRANSPARENT
+		await loading_done_transition
+		get_tree().change_scene_to_file(MAIN_MENU_REFERENCE)
+		
 		print("Is day 2, no convo")
 		return
 			
@@ -77,6 +106,8 @@ func _ready():
 	while not get_tree().paused and timer < timeout:
 		await get_tree().process_frame
 	
+	start_timer = false
+	
 	overlay_target = Color.WHITE
 	
 	await overlay_done_transition
@@ -90,10 +121,19 @@ func _ready():
 		return
 		
 	game_over_node.visible = true
-	
 	overlay_target = Color.TRANSPARENT
 	
 	await overlay_done_transition
+	
+	await get_tree().create_timer(5).timeout
+	
+	overlay_target = Color.WHITE
+	await overlay_done_transition
+	loading_target = Color.WHITE
+	await get_tree().create_timer(2).timeout
+	loading_target = Color.TRANSPARENT
+	await loading_done_transition
+	get_tree().change_scene_to_file(MAIN_MENU_REFERENCE)
 
 func move_witch():
 	witch.position.x += -2
@@ -126,5 +166,3 @@ func _process(delta):
 			overlay.modulate = overlay_target
 	elif overlay.modulate == overlay_target:
 		emit_signal("overlay_done_transition")
-
-

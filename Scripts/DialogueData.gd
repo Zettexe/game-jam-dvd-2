@@ -320,34 +320,34 @@ Thanks, 'ma."},
 	],
 	ScriptedDialogue.NIGHT1: [
 		{"character": Character.NARRATOR, "content": "With her shift done, Natalia wearily made her way home. Her steps felt heavier than usual, a sudden fatigue washing over her.
-		No doubt thanks to the near-death experience. Thinking about it, her skin crawls again, her breath becomes unsteady. She feels like fainting for a second, such was the sheer shock of the moment, and the stress she's putting her mind through while reliving it.
-		She feels like that headache has never truly gone away, a faint stinging pain in the back of her mind. Likewise, that iron taste in her mouth she had felt when pierced by the ray."},
+No doubt thanks to the near-death experience. Thinking about it, her skin crawls again, her breath becomes unsteady. She feels like fainting for a second, such was the sheer shock of the moment, and the stress she's putting her mind through while reliving it.
+She feels like that headache has never truly gone away, a faint stinging pain in the back of her mind. Likewise, that iron taste in her mouth she had felt when pierced by the ray."},
 		{"character": Character.WITCH, "content": "There you are!"},
 		{"character": Character.MCAT, "content": "Meow?"},
 		{"character": Character.NARRATOR, "content": "Natalia hadn't noticed, but she wasn't back home. Instead, her legs took her in another direction entirely, without even thinking about it. There was some strange force pulling her in.
-		What's more... She had turned back into a cat somewhere along the road."},
+What's more... She had turned back into a cat somewhere along the road."},
 		{"character": Character.MCAT, "content": "MWREOW!"},
 		{"character": Character.WITCH, "content": "Now, now, don't be so noisy."},
 		{"character": Character.MCAT, "content": "Grrr..."},
 		{"character": Character.WITCH, "content": "Kekeke, kitten's got claws? How cute!"},
 		{"character": Character.WITCH, "content": "Well then. Here's the deal. You do what I tell you to do, you make yourself like it, and you do a good job.
-		Don't mess up, and I might even reward you, you know~
-		
-		Now... There's the basket and the delivery list. Your job will be... Well, bring the potions to the right person, just as instructed.
-		
-		I'll say it again... Do NOT mess up. And as you know, selling potions isn't exactly legal, so... Hehehehe. Don't snitch either! Or I WILL find you, and I will not stop at a curse! I will make sure you'll feel all my wrath~!"},
+Don't mess up, and I might even reward you, you know~
+
+Now... There's the basket and the delivery list. Your job will be... Well, bring the potions to the right person, just as instructed.
+
+I'll say it again... Do NOT mess up. And as you know, selling potions isn't exactly legal, so... Hehehehe. Don't snitch either! Or I WILL find you, and I will not stop at a curse! I will make sure you'll feel all my wrath~!"},
 		{"character": Character.MCAT, "content": "Meow..."},
 		{"character": Character.WITCH, "content": "Ah, of course they aren't labeled. Don't mix them up, you hear?!"},
 		{"character": Character.MCAT, "content": "Meow."},
 		{"character": Character.WITCH, "content": "And if anyone asks, you say it's cold medicine."},
 		{"character": Character.MCAT, "content": "...Meow."},
 		{"character": Character.WITCH, "content": "...Ah, right. You can't talk...
-		
-		Well, just run. But don't drop the potions!"},
+
+Well, just run. But don't drop the potions!"},
 		{"character": Character.MCAT, "content": "Mreow."},
 		{"character": Character.WITCH, "content": "Maybe I'll allow you to speak, tomorrow. For now, prove to me you're a good pet. 
-		
-		Ta-ta!"},
+
+Ta-ta!"},
 		{"character": Character.MCAT, "content": "Grr."}
 	],
 	ScriptedDialogue.GOTCAT: []

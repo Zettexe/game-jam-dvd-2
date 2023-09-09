@@ -22,7 +22,7 @@ func _process(delta):
 	if get_tree().paused:
 		return
 	
-	progress += delta * 2
+	progress += delta * 3
 	
 	progress_bar.region_rect.position.y = origin_rect.position.y - progress
 	progress_bar.region_rect.size.y = origin_rect.size.y + progress
