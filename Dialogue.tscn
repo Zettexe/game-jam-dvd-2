@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://dasyh4qui0q8"]
+
+[ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="1_4sd8c"]
+
+[node name="Dialogue" type="Control" groups=["Dialogue"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4sd8c")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Name" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/Name"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 10.0
+grow_vertical = 0
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Name" type="Panel" parent="VBoxContainer/Name/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+
+[node name="Content" type="RichTextLabel" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+scroll_active = false
+scroll_following = true
+visible_characters_behavior = 2
