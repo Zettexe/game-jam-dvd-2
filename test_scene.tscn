@@ -118,6 +118,7 @@ start_at_seconds = 120
 [node name="Scripted Dialogue 3" type="Node2D" parent="." groups=["Scripted2"]]
 script = ExtResource("12_ldvwn")
 scripted_dialogue = 9
+start_at_seconds = 180
 
 [node name="Player" parent="." instance=ExtResource("2_xitt2")]
 position = Vector2(-458, 394)
