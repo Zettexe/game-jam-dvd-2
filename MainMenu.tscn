@@ -1,10 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu4sqal4eevky"]
+[gd_scene load_steps=11 format=3 uid="uid://cu4sqal4eevky"]
 
 [ext_resource type="Texture2D" uid="uid://cjrnpquo34dos" path="res://Assets/cutting_board.png" id="1_ceqey"]
 [ext_resource type="Script" path="res://MenuItems.gd" id="2_uvttq"]
+[ext_resource type="FontFile" uid="uid://bt4bbwg6d7703" path="res://Assets/Rubik/static/Rubik-Medium.ttf" id="3_npuvc"]
+[ext_resource type="Texture2D" uid="uid://ddkde2fx2sciu" path="res://Assets/f1.png" id="4_umhbe"]
+[ext_resource type="Texture2D" uid="uid://gvluqkypcmcs" path="res://Assets/f2.png" id="5_3eecc"]
+[ext_resource type="Texture2D" uid="uid://d1s68wjicc5sg" path="res://Assets/f3.png" id="6_g20ic"]
+[ext_resource type="Texture2D" uid="uid://d010c48jrfogk" path="res://Assets/f4.png" id="7_mm7n4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf3n7"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k86hd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6ag7k"]
+frames = 4
+frame_0/texture = ExtResource("4_umhbe")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("5_3eecc")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("6_g20ic")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("7_mm7n4")
+frame_3/duration = 0.5
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -59,10 +78,35 @@ script = ExtResource("2_uvttq")
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_npuvc")
 theme_override_font_sizes/font_size = 60
 text = "Play"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_npuvc")
 theme_override_font_sizes/font_size = 60
 text = "Exit"
+
+[node name="Overlay" type="Panel" parent="." groups=["Overlay"]]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k86hd")
+
+[node name="Loading" type="TextureRect" parent="." groups=["Loading"]]
+layout_mode = 0
+offset_left = 1635.0
+offset_top = 890.0
+offset_right = 1870.0
+offset_bottom = 1125.0
+texture = SubResource("AnimatedTexture_6ag7k")
+expand_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer" method="_on_exit_pressed"]

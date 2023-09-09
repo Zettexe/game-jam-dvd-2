@@ -1,5 +1,8 @@
 extends Node
 
+var is_evil = false
+var is_day_2 = false
+
 enum Character { MC, WITCH, NARRATOR, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS }
 
 const CHARACTER_NAME = {

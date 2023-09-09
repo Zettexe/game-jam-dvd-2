@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=30 format=3 uid="uid://chyr2b72yctbq"]
 
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
 [ext_resource type="Texture2D" uid="uid://delnwkxwwg0rs" path="res://Assets/holderhunter.png" id="5_s860t"]
 [ext_resource type="Texture2D" uid="uid://dihkb7oo0blcl" path="res://Assets/elderly.png" id="6_w4eis"]
 [ext_resource type="PackedScene" uid="uid://c4cq7t0jwbq8t" path="res://NPC.tscn" id="8_05blk"]
 [ext_resource type="Texture2D" uid="uid://wgopoe4aw4hb" path="res://Assets/holder_granma.png" id="8_7upr0"]
-[ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="8_bub80"]
 [ext_resource type="Script" path="res://Scripts/KitchenEntrance.gd" id="9_lmk24"]
 [ext_resource type="Script" path="res://Scripts/CollisionTool.gd" id="10_2yc3s"]
 [ext_resource type="Script" path="res://Scripts/MopBucket.gd" id="10_yudja"]
@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://b4rjpad8s24wp" path="res://Assets/kitchendoor.png" id="16_brld1"]
 [ext_resource type="Texture2D" uid="uid://d3keyrxend7m1" path="res://Assets/quick_bg.png" id="16_g7fro"]
 [ext_resource type="PackedScene" uid="uid://c0iiahg3gkjv0" path="res://Kitchen.tscn" id="17_v6k0s"]
+[ext_resource type="PackedScene" uid="uid://dasyh4qui0q8" path="res://Dialogue.tscn" id="18_7nnjk"]
 [ext_resource type="AudioStream" uid="uid://d1sf7cq44378s" path="res://Assets/tavern.ogg" id="18_p6n04"]
+[ext_resource type="Script" path="res://Scripts/MainInit.gd" id="20_l7gun"]
 
 [sub_resource type="GDScript" id="GDScript_30r57"]
 script/source = "extends StaticBody2D
@@ -50,8 +52,16 @@ size = Vector2(143, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
 size = Vector2(49, 80.8)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urr2t"]
+bg_color = Color(0.982258, 0.000463403, 0.918628, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v41y3"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D"]
+process_mode = 1
 y_sort_enabled = true
+script = ExtResource("1_hijv4")
 
 [node name="Scripted Dialogue" type="Node2D" parent="."]
 script = ExtResource("12_ldvwn")
@@ -290,83 +300,39 @@ shape = SubResource("RectangleShape2D_s5htm")
 position = Vector2(-270, 1698)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
+process_mode = 3
 
-[node name="Dialogue" type="Control" parent="CanvasLayer" groups=["Dialogue"]]
-visible = false
+[node name="Init" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("8_bub80")
+script = ExtResource("20_l7gun")
 
-[node name="Background" type="Panel" parent="CanvasLayer/Dialogue"]
+[node name="TextureRect" type="Panel" parent="CanvasLayer/Init"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_urr2t")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Dialogue"]
+[node name="Overlay" type="Panel" parent="CanvasLayer/Init" groups=["Overlay"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_v41y3")
 
-[node name="Name" type="Control" parent="CanvasLayer/Dialogue/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="RichTextLabel" parent="CanvasLayer/Dialogue/VBoxContainer/Name"]
-clip_contents = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_right = 10.0
-grow_vertical = 0
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Name" type="Panel" parent="CanvasLayer/Dialogue/VBoxContainer/Name/Label"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -10.0
-offset_top = -5.0
-offset_right = 10.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Dialogue/VBoxContainer"]
-custom_minimum_size = Vector2(100, 200)
-layout_mode = 2
-
-[node name="Content" type="RichTextLabel" parent="CanvasLayer/Dialogue/VBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 5.0
-offset_right = -10.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-scroll_active = false
-scroll_following = true
-visible_characters_behavior = 2
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("18_7nnjk")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_p6n04")

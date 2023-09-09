@@ -22,6 +22,7 @@ var candle_lit = true:
 				npc.emit_signal("light_returned")
 
 var candle_timeout = false
+var disabled_old_man = false
 
 func _interact():
 	candle_lit = true
@@ -69,7 +70,7 @@ func _process(delta):
 			dialogue_content = DialogueData.CHATTER[randi() % DialogueData.CHATTER.size()]
 		else:
 			dialogue_content = DialogueData.DARKNESS_CHATTER[randi() % DialogueData.DARKNESS_CHATTER.size()]
-		var selected_npc = npcs[randi() % npcs.size()]
+		var selected_npc = npcs[randi() % npcs.size() if not disabled_old_man else 1]
 		dialogue_node.show_dialogue(dialogue_content, selected_npc.dialogue_size, selected_npc.get_screen_transform().origin + selected_npc.dialogue_offset)
 		await dialogue_node.done
 		await get_tree().create_timer(1.5).timeout
