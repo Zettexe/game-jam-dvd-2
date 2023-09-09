@@ -274,7 +274,7 @@ When all of a sudden..."},
 		{ "character": Character.HUNTRESS, "content": "Nope. Well, don't think so. Didn't go."},
 		{ "character": Character.GRANDMA, "content": "You didn't?"},
 		{ "character": Character.HUNTRESS, "content": "Yesterday, I told her I wanted to talk.
-													She told me to wait up, so I did."},
+She told me to wait up, so I did."},
 		{ "character": Character.HUNTRESS, "content": "Swung by after the bakery was closed. But before I could talk to her, she's up on a horse and out of town."},
 		{ "character": Character.GRANDMA, "content": "Ah? She eloped? How dreadful..."},
 		{ "character": Character.HUNTRESS, "content": "Guess it wasn't meant to be."},
@@ -291,7 +291,7 @@ When all of a sudden..."},
 		{ "character": Character.HUNTRESS, "content": "What does?"},
 		{ "character": Character.GRANDMA, "content": "I heard someone saying she had gone mad..."},
 		{ "character": Character.GRANDMA, "content": "Now I know what they meant!
-													She was shouting about true love, you see."},
+She was shouting about true love, you see."},
 		{ "character": Character.GRANDMA, "content": "Ah, dearie me. To be young again..."},
 		{ "character": Character.HUNTRESS, "content": "True love, huh..."},
 		{ "character": Character.GRANDMA, "content": "Yes, yes. About remembering what love was, or something of the sort!"},
@@ -299,9 +299,9 @@ When all of a sudden..."},
 		{ "character": Character.GRANDMA, "content": "Goes to show you never fully know someone! Unless you marry them, haha!"},
 		{ "character": Character.HUNTRESS, "content": "...Guess so."},
 		{ "character": Character.GRANDMA, "content": "Ah, sweetie, sweetie. Stop with the moping. Grandma will make you your favorite apple pie.
-													It won't mend a broken heart, but it's better than an empty belly!"},
+It won't mend a broken heart, but it's better than an empty belly!"},
 		{ "character": Character.HUNTRESS, "content": "...Yeah... 
-													Thanks, 'ma."},
+Thanks, 'ma."},
 		
 	],
 	ScriptedDialogue.BAKERY2B: [

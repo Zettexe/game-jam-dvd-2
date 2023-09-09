@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://s522mfivbihx"]
+
+[ext_resource type="Script" path="res://Scripts/Night.gd" id="1_7o0jh"]
+[ext_resource type="Texture2D" uid="uid://ddkde2fx2sciu" path="res://Assets/f1.png" id="1_so7a7"]
+[ext_resource type="Texture2D" uid="uid://gvluqkypcmcs" path="res://Assets/f2.png" id="2_kyfem"]
+[ext_resource type="Texture2D" uid="uid://d1s68wjicc5sg" path="res://Assets/f3.png" id="3_6lj8s"]
+[ext_resource type="Texture2D" uid="uid://d010c48jrfogk" path="res://Assets/f4.png" id="4_fxxf0"]
+[ext_resource type="PackedScene" uid="uid://dasyh4qui0q8" path="res://Dialogue.tscn" id="6_sufog"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fevyy"]
+bg_color = Color(0.0980392, 0.00784314, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtaq5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_dlga0"]
+frames = 4
+frame_0/texture = ExtResource("1_so7a7")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_kyfem")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("3_6lj8s")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("4_fxxf0")
+frame_3/duration = 0.5
+
+[node name="Night" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7o0jh")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fevyy")
+
+[node name="Dialogue" parent="." instance=ExtResource("6_sufog")]
+layout_mode = 1
+
+[node name="Overlay" type="Panel" parent="." groups=["Overlay"]]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtaq5")
+
+[node name="Loading" type="TextureRect" parent="." groups=["Loading"]]
+offset_left = 1635.0
+offset_top = 890.0
+offset_right = 1870.0
+offset_bottom = 1125.0
+texture = SubResource("AnimatedTexture_dlga0")
+expand_mode = 1
