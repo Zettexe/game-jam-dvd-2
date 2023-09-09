@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/FloatingDialogue.gd" id="1_ve7qm"]
 
-[node name="FloatingDialogue" type="Control"]
+[node name="FloatingDialogue" type="Control" groups=["FloatingDialogue"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ve7qm")

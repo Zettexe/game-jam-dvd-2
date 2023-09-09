@@ -3,6 +3,7 @@ extends Node2D
 @onready var carrot_box = get_tree().get_first_node_in_group("CarrotBox")
 @onready var init = get_tree().get_first_node_in_group("Init")
 @onready var progress_bar = $CauldronProgressBar2
+@onready var sprite = $Sprite
 
 @onready var origin_rect: Rect2 = progress_bar.region_rect
 @onready var origin_pos_y = progress_bar.position.y
@@ -17,6 +18,7 @@ func _interact():
 	if carrot_box.progress >= decrease_amount and progress >= decrease_amount and not get_tree().paused:
 		carrot_box.progress -= decrease_amount
 		progress -= decrease_amount
+		sprite.play()
 
 func _process(delta):
 	if get_tree().paused:

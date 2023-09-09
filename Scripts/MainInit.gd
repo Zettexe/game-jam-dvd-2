@@ -89,8 +89,6 @@ func _ready():
 	
 	dialogue.hide_dialogue()
 	
-	print("End Dialogue")
-	
 	await overlay_done_transition
 	
 	overlay_target = Color.WHITE
@@ -136,11 +134,10 @@ func _ready():
 	get_tree().change_scene_to_file(MAIN_MENU_REFERENCE)
 
 func move_witch():
-	witch.position.x += -2
+	witch.position.y += 2
 
 func _process(delta):
 	if start_timer:
-		print(timer)
 		timer += delta
 	
 	if should_move_witch:

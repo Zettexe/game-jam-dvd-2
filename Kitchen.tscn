@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c0iiahg3gkjv0"]
+[gd_scene load_steps=37 format=3 uid="uid://c0iiahg3gkjv0"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_j8sqa"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_2qybo"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cx8fgbmbalwao" path="res://Assets/Restoparallax.png" id="2_gmg2o"]
 [ext_resource type="Script" path="res://Scripts/Cauldron.gd" id="3_bphy0"]
 [ext_resource type="Texture2D" uid="uid://dc58rhqqrnbsw" path="res://Assets/BgOneKitchen.png" id="3_cgnrw"]
-[ext_resource type="Texture2D" uid="uid://2p1olehqyqr5" path="res://Assets/cauldron_holder_2.png" id="3_epug8"]
 [ext_resource type="Texture2D" uid="uid://hwaphwso2qbf" path="res://Assets/fgdoorLeft.png" id="5_0cmda"]
 [ext_resource type="Script" path="res://Scripts/KitchenDoor.gd" id="5_ml54r"]
 [ext_resource type="Texture2D" uid="uid://djwhncmngm6dd" path="res://Assets/cauldron_progress_bar.png" id="5_wqn6w"]
@@ -14,14 +13,62 @@
 [ext_resource type="Texture2D" uid="uid://ymnpg28f265e" path="res://Assets/progress_full.png" id="6_on2pw"]
 [ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="7_ploun"]
 [ext_resource type="Script" path="res://Scripts/CarrotBox.gd" id="8_tkuu5"]
+[ext_resource type="Texture2D" uid="uid://bypdwo3tvxqwp" path="res://Assets/Timeline_1_0000.png" id="9_joega"]
+[ext_resource type="Texture2D" uid="uid://ckrktjymyshno" path="res://Assets/Timeline_1_0001.png" id="10_4umfe"]
 [ext_resource type="Texture2D" uid="uid://dbhbeyf7k72vh" path="res://Assets/carrotfull.png" id="11_845to"]
+[ext_resource type="Texture2D" uid="uid://7gedmv81fw4y" path="res://Assets/Timeline_1_0002.png" id="11_addcv"]
+[ext_resource type="Texture2D" uid="uid://chsch4qge4uxe" path="res://Assets/Timeline_1_0003.png" id="12_bk6er"]
 [ext_resource type="Texture2D" uid="uid://il7cv83wxad0" path="res://Assets/progress_carrot.png" id="12_xydlk"]
+[ext_resource type="Texture2D" uid="uid://padlxtgq7oa8" path="res://Assets/Timeline_1_0004.png" id="13_h8aua"]
+[ext_resource type="Texture2D" uid="uid://lgwhm5kl3s2e" path="res://Assets/Timeline_1_0005.png" id="14_xxg3m"]
+[ext_resource type="Texture2D" uid="uid://7py4nxiaxfk0" path="res://Assets/Timeline_1_0006.png" id="15_g4s01"]
+[ext_resource type="Texture2D" uid="uid://b7ev6atq3voa7" path="res://Assets/Timeline_1_0007.png" id="16_exu46"]
 [ext_resource type="Texture2D" uid="uid://o63cwn11dlq8" path="res://Assets/filler_furniture.png" id="16_t5c3s"]
+[ext_resource type="Texture2D" uid="uid://dtk5y11e7o7p4" path="res://Assets/Timeline_1_0008.png" id="17_7i37v"]
 [ext_resource type="Texture2D" uid="uid://bh3hue44vfsq1" path="res://Assets/fgcarrot.png" id="17_u4wem"]
+[ext_resource type="Texture2D" uid="uid://gxcf5ssfe2po" path="res://Assets/Timeline_1_0009.png" id="18_r3xxp"]
 [ext_resource type="Texture2D" uid="uid://urbktl3j0umj" path="res://Assets/bucketchan.png" id="19_5dq15"]
 [ext_resource type="Texture2D" uid="uid://t1k1241i1de" path="res://Assets/placeholder_torch_on.png" id="19_brjxt"]
 [ext_resource type="Texture2D" uid="uid://dk31cmg4hl8a5" path="res://Assets/lightmask.png" id="20_1hxgt"]
 [ext_resource type="Texture2D" uid="uid://dtyo0ths1jemv" path="res://Assets/kitchenfurniture.png" id="20_j4vol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww1ac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_joega")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4umfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_addcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bk6er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h8aua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xxg3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g4s01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_exu46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7i37v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_r3xxp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frgwk"]
 size = Vector2(135, 149)
@@ -75,9 +122,11 @@ texture = ExtResource("6_by274")
 position = Vector2(308, 185)
 script = ExtResource("3_bphy0")
 
-[node name="Sprite" type="Sprite2D" parent="Cauldron" groups=["CauldronSprite"]]
+[node name="Sprite" type="AnimatedSprite2D" parent="Cauldron" groups=["CauldronSprite"]]
 position = Vector2(-13, -84)
-texture = ExtResource("3_epug8")
+sprite_frames = SubResource("SpriteFrames_ww1ac")
+frame = 9
+frame_progress = 1.0
 
 [node name="CauldronProgressBar" type="Sprite2D" parent="Cauldron"]
 position = Vector2(-12, -311)

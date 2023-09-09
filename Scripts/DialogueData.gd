@@ -2,6 +2,7 @@ extends Node
 
 var is_evil = false
 var is_day_2 = false
+var is_in_kitchen = false
 
 enum Character { MC, WITCH, NARRATOR, CAT, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS }
 

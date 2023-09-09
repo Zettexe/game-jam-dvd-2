@@ -5,6 +5,7 @@ const FLOATING_DIALOGUE_REFERENCE = preload("res://FloatingDialogue.tscn")
 
 @export var spawn_chance_per_frame: float = 0.05
 
+@onready var kitchen_camera = get_tree().get_first_node_in_group("KitchenCamera")
 @onready var canvas_layer = get_tree().get_first_node_in_group("CanvasLayer")
 @onready var spawn_area = $Area/CollisionShape
 @onready var candle = $Candle

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu4sqal4eevky"]
+[gd_scene load_steps=12 format=3 uid="uid://cu4sqal4eevky"]
 
 [ext_resource type="Texture2D" uid="uid://cjrnpquo34dos" path="res://Assets/cutting_board.png" id="1_ceqey"]
 [ext_resource type="FontFile" uid="uid://bt4bbwg6d7703" path="res://Assets/Rubik/static/Rubik-Medium.ttf" id="3_npuvc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://gvluqkypcmcs" path="res://Assets/f2.png" id="5_3eecc"]
 [ext_resource type="Texture2D" uid="uid://d1s68wjicc5sg" path="res://Assets/f3.png" id="6_g20ic"]
 [ext_resource type="Texture2D" uid="uid://d010c48jrfogk" path="res://Assets/f4.png" id="7_mm7n4"]
+[ext_resource type="Texture2D" uid="uid://b508aa2fqkfl8" path="res://Assets/title.png" id="8_n8ca2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kf3n7"]
 bg_color = Color(0, 0, 0, 1)
@@ -89,6 +90,7 @@ theme_override_font_sizes/font_size = 60
 text = "Exit"
 
 [node name="Overlay" type="Panel" parent="." groups=["Overlay"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,6 +109,11 @@ offset_right = 1870.0
 offset_bottom = 1125.0
 texture = SubResource("AnimatedTexture_6ag7k")
 expand_mode = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(952, 282)
+scale = Vector2(2, 2)
+texture = ExtResource("8_n8ca2")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer" method="_on_exit_pressed"]

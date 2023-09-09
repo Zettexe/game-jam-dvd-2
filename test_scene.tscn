@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=40 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
+[ext_resource type="Texture2D" uid="uid://bbdmuf0whw526" path="res://Assets/dumbrug.png" id="2_6k04v"]
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
 [ext_resource type="Texture2D" uid="uid://delnwkxwwg0rs" path="res://Assets/holderhunter.png" id="5_s860t"]
 [ext_resource type="Texture2D" uid="uid://dihkb7oo0blcl" path="res://Assets/elderly.png" id="6_w4eis"]
@@ -85,6 +86,12 @@ frame_3/duration = 0.5
 process_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_hijv4")
+
+[node name="Dumbrug" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-626, 473)
+rotation = -1.56795
+texture = ExtResource("2_6k04v")
 
 [node name="Scripted Dialogue" type="Node2D" parent="." groups=["Scripted1"]]
 script = ExtResource("12_ldvwn")

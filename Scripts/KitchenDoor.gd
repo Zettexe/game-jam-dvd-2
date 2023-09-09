@@ -1,7 +1,5 @@
 extends Node2D
 
-const CAULDRON_REFERENCE = preload("res://Assets/cauldron_holder_3.png")
-
 @onready var kitchen = get_tree().get_first_node_in_group("Kitchen")
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var kitchen_player = get_tree().get_first_node_in_group("KitchenPlayer")
@@ -22,5 +20,4 @@ func _interact():
 	
 	camera.enabled = true
 	kitchen_camera.enabled = false
-	
-	cauldron.texture = CAULDRON_REFERENCE
+	DialogueData.is_in_kitchen = false
