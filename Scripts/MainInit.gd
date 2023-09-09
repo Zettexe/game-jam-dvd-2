@@ -22,7 +22,7 @@ var intro_target = Color.WHITE
 var loading_target = Color.TRANSPARENT
 var should_move_witch = false
 var game_over = false
-var timeout = 60 * 1 # minutes
+var timeout = 60 * 5 # minutes
 var timer = 0
 var start_timer = false
 

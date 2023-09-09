@@ -38,10 +38,12 @@ func _interact():
 		p.has_crate_powerup = true
 
 func _on_area_player_entered(body):
-	sprite.modulate = Color.RED
+	pass
+	#sprite.modulate = Color.RED
 
 func _on_area_body_exited(body):
-	sprite.modulate = Color.WHITE
+	pass
+	#sprite.modulate = Color.WHITE
 "
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xec66"]
@@ -107,12 +109,16 @@ position = Vector2(99, 84)
 
 [node name="NPC" parent="Table Set" instance=ExtResource("8_05blk")]
 position = Vector2(-64, -18)
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("5_s860t")
 sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set" instance=ExtResource("8_05blk")]
 position = Vector2(80, -15)
 npc = 1
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("6_w4eis")
 sprite_position = Vector2(-4, -110)
 
@@ -125,6 +131,8 @@ position = Vector2(345, -168)
 [node name="NPC" parent="Table Set 2" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
 npc = 6
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 flip_h = true
 texture = ExtResource("6_w4eis")
 sprite_position = Vector2(-4, -110)
@@ -132,6 +140,8 @@ sprite_position = Vector2(-4, -110)
 [node name="NPC2" parent="Table Set 2" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
 npc = 5
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 flip_h = true
 texture = ExtResource("11_capwe")
 sprite_position = Vector2(-4, -110)
@@ -144,12 +154,16 @@ position = Vector2(302, 342)
 
 [node name="NPC" parent="Table Set 3" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("11_capwe")
 sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 3" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
 npc = 1
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("8_7upr0")
 sprite_position = Vector2(-1, -90)
 
@@ -162,12 +176,16 @@ position = Vector2(-411, 54)
 [node name="NPC" parent="Table Set 4" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
 npc = 8
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("5_s860t")
 sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 4" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
 npc = 7
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("8_7upr0")
 sprite_position = Vector2(-1, -90)
 
@@ -179,12 +197,16 @@ position = Vector2(-164, -198)
 
 [node name="NPC" parent="Table Set 5" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 texture = ExtResource("11_capwe")
 sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 5" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
 npc = 1
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 flip_h = true
 texture = ExtResource("5_s860t")
 sprite_position = Vector2(-1, -110)
@@ -197,6 +219,8 @@ position = Vector2(-173, 344)
 
 [node name="NPC" parent="Table Set 6" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
+dialogue_size = Vector2(300, 140)
+dialogue_offset = Vector2(0, -200)
 flip_h = true
 texture = ExtResource("8_7upr0")
 sprite_position = Vector2(-1, -90)

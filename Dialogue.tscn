@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="1_4sd8c"]
 
 [node name="Dialogue" type="Control" groups=["Dialogue"]]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +40,8 @@ anchor_bottom = 1.0
 offset_left = 10.0
 offset_right = 10.0
 grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 24
+text = "Aint nothin here"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -74,6 +75,7 @@ offset_right = -10.0
 offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 22
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 scroll_active = false
 scroll_following = true

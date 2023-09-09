@@ -8,8 +8,8 @@ signal light_returned
 @export var npc_content: String
 
 @export var npc: DialogueData.Character
-@export var dialogue_size = Vector2(200, 85)
-@export var dialogue_offset = Vector2(0, -175)
+@export var dialogue_size = Vector2(300, 140)
+@export var dialogue_offset = Vector2(0, -200)
 
 @export var scripted_dialogue: DialogueData.ScriptedDialogue
 
