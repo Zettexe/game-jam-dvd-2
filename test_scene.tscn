@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=51 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
 [ext_resource type="Texture2D" uid="uid://bbdmuf0whw526" path="res://Assets/dumbrug.png" id="2_6k04v"]
@@ -26,8 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://doh3hfmasrpnc" path="res://Assets/placeholderintro.png" id="21_4iavb"]
 [ext_resource type="Texture2D" uid="uid://ddkde2fx2sciu" path="res://Assets/f1.png" id="21_afwup"]
 [ext_resource type="Texture2D" uid="uid://sr3j6jdfxftq" path="res://Assets/Illustration30.png" id="22_6ndfk"]
+[ext_resource type="Texture2D" uid="uid://blewr7fcuclf7" path="res://Assets/sunholder.png" id="22_34evn"]
 [ext_resource type="Texture2D" uid="uid://gvluqkypcmcs" path="res://Assets/f2.png" id="22_esu45"]
 [ext_resource type="Texture2D" uid="uid://cugjapbx8yl5u" path="res://Assets/Game_Over_option.png" id="22_ktwyf"]
+[ext_resource type="Texture2D" uid="uid://by586y3o7sul" path="res://Assets/sundial.png" id="23_rmgyn"]
 [ext_resource type="Texture2D" uid="uid://d1s68wjicc5sg" path="res://Assets/f3.png" id="23_v61eh"]
 [ext_resource type="Texture2D" uid="uid://d010c48jrfogk" path="res://Assets/f4.png" id="24_hppmw"]
 [ext_resource type="Texture2D" uid="uid://bb36om3esqoh" path="res://Assets/lebiflag.png" id="31_bg4wa"]
@@ -382,6 +384,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("20_l7gun")
 
+[node name="Timer" type="MarginContainer" parent="CanvasLayer/Init"]
+modulate = Color(0.489622, 0.489622, 0.489622, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Init/Timer"]
+layout_mode = 2
+texture = ExtResource("22_34evn")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Init/Timer/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = -0.348228
+pivot_offset = Vector2(93, 92)
+theme_override_constants/margin_left = -2
+theme_override_constants/margin_top = 6
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Init/Timer/TextureRect/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("23_rmgyn")
+
 [node name="GameOver" type="Panel" parent="CanvasLayer/Init" groups=["GameOver"]]
 visible = false
 layout_mode = 1
@@ -431,6 +459,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="IntroBackground" type="TextureRect" parent="CanvasLayer/Init" groups=["Intro"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -440,6 +469,7 @@ grow_vertical = 2
 texture = ExtResource("21_4iavb")
 
 [node name="Overlay" type="Panel" parent="CanvasLayer/Init" groups=["Overlay"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -451,6 +481,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_v41y3")
 
 [node name="Loading" type="TextureRect" parent="CanvasLayer/Init" groups=["Loading"]]
+visible = false
 layout_mode = 0
 offset_left = 1635.0
 offset_top = 890.0

@@ -18,15 +18,17 @@ const MAIN_MENU_REFERENCE = "res://MainMenu.tscn"
 @onready var scripted1 = get_tree().get_first_node_in_group("Scripted1")
 @onready var scripted2 = get_tree().get_first_node_in_group("Scripted2")
 @onready var joms = get_tree().get_first_node_in_group("Joms")
+@onready var timer_node = $Timer/TextureRect/MarginContainer
 
 var overlay_target = Color.TRANSPARENT
 var intro_target = Color.WHITE
 var loading_target = Color.TRANSPARENT
 var should_move_witch = false
 var game_over = false
-var timeout = 60 * 5 # minutes
+var timeout = 60 * 6 # minutes
 var timer = 0
 var start_timer = false
+var start_rotation = -20
 
 func _ready():
 	loading.modulate = Color.TRANSPARENT
@@ -139,6 +141,7 @@ func move_witch():
 func _process(delta):
 	if start_timer:
 		timer += delta
+		timer_node.rotation_degrees = start_rotation + timer / 2
 	
 	if should_move_witch:
 		move_witch()
