@@ -3,12 +3,13 @@ extends Node
 var is_evil = false
 var is_day_2 = false
 
-enum Character { MC, WITCH, NARRATOR, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS }
+enum Character { MC, WITCH, NARRATOR, CAT, MCAT, BOSS, GUARD, ELDERLY, GRANDMA, HUNTRESS }
 
 const CHARACTER_NAME = {
 	Character.MC: "Natalia",
 	Character.WITCH: "Eliza",
-	Character.MCAT: "Cat",
+	Character.CAT: "Cat",
+	Character.MCAT: "Catalia",
 	Character.NARRATOR: "",
 	Character.BOSS: "Hailey",
 	Character.GUARD: "Guard",
@@ -71,7 +72,7 @@ There's a sudden blinding light emanating from the top of her staff, followed by
 No one dared move — not even the few guards present. Who would oppose the town's witch Eliza, after all? Especially as she had no qualms about doing any of this in broad daylight.
 Mostly because of the alcohol, for sure." },
 		{ "character": Character.NARRATOR, "content": "The horrored murmurs changed into confused bewilderments when a small cat jumped on top of the counter. Did they always have pets in here?" },
-		{ "character": Character.MCAT, "content": "Meow?" },
+		{ "character": Character.CAT, "content": "Meow?" },
 		{ "character": Character.WITCH, "content": "...Huh?" },
 		{ "character": Character.WITCH, "content": "I... Huh. [Hic] Why are youuuu... a..." },
 		{ "character": Character.MCAT, "content": "Meow." },
@@ -176,7 +177,7 @@ I don't want to influence your answer. I'll tell you after you tell me." },
 		{ "character": Character.GUARD, "content": "No way he just got bored of coming here!" },
 		{ "character": Character.GUARD, "content": "Nah, he's probably just in bed. Good ol' Genevieve must have made him a nice soup." },
 		{ "character": Character.GUARD, "content": "I should pass by his house later." },
-		{ "character": Character.GUARD, "content": "...After my turn. Which I'm spending here anyway! Gotta love being paid for doing nothing!" }
+		{ "character": Character.GUARD, "content": "...After my shift. Which I'm spending here anyway! Gotta love being paid for doing nothing!" }
 	],
 	ScriptedDialogue.BATKNIFE2B: [
 		{ "character": Character.GUARD, "content": "Oi, gramps." },
@@ -303,7 +304,51 @@ When all of a sudden..."},
 													Thanks, 'ma."},
 		
 	],
-	ScriptedDialogue.BAKERY2B: [],
-	ScriptedDialogue.NIGHT1: [],
+	ScriptedDialogue.BAKERY2B: [
+		{ "character": Character.HUNTRESS, "content": "'Ma?"},
+		{ "character": Character.GRANDMA, "content": "Yes, sweetie?"},
+		{ "character": Character.HUNTRESS, "content": ""},
+		{ "character": Character.GRANDMA, "content": ""},
+		{ "character": Character.HUNTRESS, "content": ""},
+		{ "character": Character.GRANDMA, "content": ""},
+		{ "character": Character.HUNTRESS, "content": ""},
+		{ "character": Character.GRANDMA, "content": ""},
+		{ "character": Character.HUNTRESS, "content": ""},
+		{ "character": Character.GRANDMA, "content": ""},
+		{ "character": Character.HUNTRESS, "content": ""},
+		{ "character": Character.GRANDMA, "content": ""},
+	],
+	ScriptedDialogue.NIGHT1: [
+		{"character": Character.NARRATOR, "content": "With her shift done, Natalia wearily made her way home. Her steps felt heavier than usual, a sudden fatigue washing over her.
+		No doubt thanks to the near-death experience. Thinking about it, her skin crawls again, her breath becomes unsteady. She feels like fainting for a second, such was the sheer shock of the moment, and the stress she's putting her mind through while reliving it.
+		She feels like that headache has never truly gone away, a faint stinging pain in the back of her mind. Likewise, that iron taste in her mouth she had felt when pierced by the ray."},
+		{"character": Character.WITCH, "content": "There you are!"},
+		{"character": Character.MCAT, "content": "Meow?"},
+		{"character": Character.NARRATOR, "content": "Natalia hadn't noticed, but she wasn't back home. Instead, her legs took her in another direction entirely, without even thinking about it. There was some strange force pulling her in.
+		What's more... She had turned back into a cat somewhere along the road."},
+		{"character": Character.MCAT, "content": "MWREOW!"},
+		{"character": Character.WITCH, "content": "Now, now, don't be so noisy."},
+		{"character": Character.MCAT, "content": "Grrr..."},
+		{"character": Character.WITCH, "content": "Kekeke, kitten's got claws? How cute!"},
+		{"character": Character.WITCH, "content": "Well then. Here's the deal. You do what I tell you to do, you make yourself like it, and you do a good job.
+		Don't mess up, and I might even reward you, you know~
+		
+		Now... There's the basket and the delivery list. Your job will be... Well, bring the potions to the right person, just as instructed.
+		
+		I'll say it again... Do NOT mess up. And as you know, selling potions isn't exactly legal, so... Hehehehe. Don't snitch either! Or I WILL find you, and I will not stop at a curse! I will make sure you'll feel all my wrath~!"},
+		{"character": Character.MCAT, "content": "Meow..."},
+		{"character": Character.WITCH, "content": "Ah, of course they aren't labeled. Don't mix them up, you hear?!"},
+		{"character": Character.MCAT, "content": "Meow."},
+		{"character": Character.WITCH, "content": "And if anyone asks, you say it's cold medicine."},
+		{"character": Character.MCAT, "content": "...Meow."},
+		{"character": Character.WITCH, "content": "...Ah, right. You can't talk...
+		
+		Well, just run. But don't drop the potions!"},
+		{"character": Character.MCAT, "content": "Mreow."},
+		{"character": Character.WITCH, "content": "Maybe I'll allow you to speak, tomorrow. For now, prove to me you're a good pet. 
+		
+		Ta-ta!"},
+		{"character": Character.MCAT, "content": "Grr."}
+	],
 	ScriptedDialogue.GOTCAT: []
 }
