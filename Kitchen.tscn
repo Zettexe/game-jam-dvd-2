@@ -234,5 +234,5 @@ color = Color(1, 0.654902, 0.356863, 1)
 texture = ExtResource("20_1hxgt")
 
 [node name="Piss-chan" type="Sprite2D" parent="."]
-position = Vector2(110, 13)
+position = Vector2(886, 18)
 texture = ExtResource("32_1x8g8")
