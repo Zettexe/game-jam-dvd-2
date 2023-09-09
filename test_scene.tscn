@@ -125,7 +125,6 @@ sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set" instance=ExtResource("8_05blk")]
 position = Vector2(80, -15)
-npc = 1
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 texture = ExtResource("6_w4eis")
@@ -139,7 +138,7 @@ position = Vector2(345, -168)
 
 [node name="NPC" parent="Table Set 2" groups=["OldMan"] instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
-npc = 6
+npc = 7
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 flip_h = true
@@ -148,7 +147,7 @@ sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set 2" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
-npc = 5
+npc = 6
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 flip_h = true
@@ -170,7 +169,6 @@ sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 3" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
-npc = 1
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 texture = ExtResource("8_7upr0")
@@ -184,7 +182,7 @@ position = Vector2(-411, 54)
 
 [node name="NPC" parent="Table Set 4" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
-npc = 8
+npc = 9
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 texture = ExtResource("5_s860t")
@@ -192,7 +190,7 @@ sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 4" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
-npc = 7
+npc = 8
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 texture = ExtResource("8_7upr0")
@@ -213,7 +211,6 @@ sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 5" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
-npc = 1
 dialogue_size = Vector2(300, 140)
 dialogue_offset = Vector2(0, -200)
 flip_h = true
@@ -236,7 +233,6 @@ sprite_position = Vector2(-1, -90)
 
 [node name="NPC2" parent="Table Set 6" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
-npc = 1
 texture = ExtResource("6_w4eis")
 sprite_position = Vector2(-1, -110)
 

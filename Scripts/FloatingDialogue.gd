@@ -21,12 +21,6 @@ func show_dialogue(text: String, size: Vector2, position: Vector2):
 	content_node.visible_characters = 0
 	dialogue_size = size
 	dialogue_position = position
-	
-	print(camera.get_screen_center_position())
-	print(kitchen_camera.get_screen_center_position())
-	print(position)
-	print(camera_offset)
-	print(position + camera_offset)
 
 func hide_dialogue():
 	is_visible = false
