@@ -21,6 +21,8 @@ var candle_lit = true:
 			if value:
 				npc.emit_signal("light_returned")
 
+var candle_timeout = false
+
 func _interact():
 	candle_lit = true
 
@@ -41,6 +43,15 @@ func _process(delta):
 			await get_tree().physics_frame
 		puddle.visible = true
 	
+	if candle_timeout:
+		return
+	
+	if randi() % 10000 < 1 and candle_lit:
+		candle_lit = false
+		candle_timeout = true
+		await get_tree().create_timer(2).timeout
+		candle_timeout = false
+	
 	var is_busy = false
 	for npc in npcs:
 		if npc.is_chattering or (npc.scripted_waiting and candle_lit):
@@ -54,12 +65,10 @@ func _process(delta):
 		dialogue_node.position = position
 		canvas_layer.add_child(dialogue_node)
 		var dialogue_content
-		print(candle_lit)
 		if candle_lit:
 			dialogue_content = DialogueData.CHATTER[randi() % DialogueData.CHATTER.size()]
 		else:
 			dialogue_content = DialogueData.DARKNESS_CHATTER[randi() % DialogueData.DARKNESS_CHATTER.size()]
-		print(dialogue_content)
 		var selected_npc = npcs[randi() % npcs.size()]
 		dialogue_node.show_dialogue(dialogue_content, selected_npc.dialogue_size, selected_npc.get_screen_transform().origin + selected_npc.dialogue_offset)
 		await dialogue_node.done
@@ -71,7 +80,3 @@ func _process(delta):
 			npc.is_chattering = false
 			if npc.scripted_waiting:
 				npc.emit_signal("dialogue_ready")
-	
-	if randi() % 1000 < 10:
-		candle_lit = false
-

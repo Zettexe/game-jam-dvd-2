@@ -8,7 +8,7 @@ extends Node2D
 
 var progress = 0:
 	set(value):
-		progress = clamp(value, 0, progress_bar.region_rect.position.y)
+		progress = clamp(value, 0, origin_rect.position.y)
 
 var decrease_amount = 0.5
 

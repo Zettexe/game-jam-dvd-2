@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=26 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="PackedScene" uid="uid://djevw1s1hmioy" path="res://Player.tscn" id="2_xitt2"]
-[ext_resource type="Texture2D" uid="uid://b6b1i0wtq6k60" path="res://Assets/Mehwitch.png" id="5_kay4c"]
+[ext_resource type="Texture2D" uid="uid://delnwkxwwg0rs" path="res://Assets/holderhunter.png" id="5_s860t"]
 [ext_resource type="Texture2D" uid="uid://dihkb7oo0blcl" path="res://Assets/elderly.png" id="6_w4eis"]
 [ext_resource type="PackedScene" uid="uid://c4cq7t0jwbq8t" path="res://NPC.tscn" id="8_05blk"]
 [ext_resource type="Texture2D" uid="uid://wgopoe4aw4hb" path="res://Assets/holder_granma.png" id="8_7upr0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dhmybgae1psy7" path="res://Assets/buckit.png" id="12_jki6d"]
 [ext_resource type="Script" path="res://Scripts/ScriptedDialogue.gd" id="12_ldvwn"]
 [ext_resource type="Texture2D" uid="uid://dduc7iv2corm4" path="res://Assets/boxplaceholder2.png" id="12_lequn"]
+[ext_resource type="Texture2D" uid="uid://b4rjpad8s24wp" path="res://Assets/kitchendoor.png" id="16_brld1"]
 [ext_resource type="Texture2D" uid="uid://d3keyrxend7m1" path="res://Assets/quick_bg.png" id="16_g7fro"]
 [ext_resource type="PackedScene" uid="uid://c0iiahg3gkjv0" path="res://Kitchen.tscn" id="17_v6k0s"]
 [ext_resource type="AudioStream" uid="uid://d1sf7cq44378s" path="res://Assets/tavern.ogg" id="18_p6n04"]
@@ -43,8 +44,11 @@ func _on_area_body_exited(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fvpw"]
 size = Vector2(835.565, 45.7187)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13sqm"]
+size = Vector2(143, 36)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5htm"]
-size = Vector2(137, 207)
+size = Vector2(49, 80.8)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -69,8 +73,7 @@ position = Vector2(99, 84)
 
 [node name="NPC" parent="Table Set" instance=ExtResource("8_05blk")]
 position = Vector2(-64, -18)
-flip_h = true
-texture = ExtResource("5_kay4c")
+texture = ExtResource("5_s860t")
 sprite_position = Vector2(-4, -110)
 
 [node name="NPC2" parent="Table Set" instance=ExtResource("8_05blk")]
@@ -124,8 +127,7 @@ position = Vector2(-163, -195)
 
 [node name="NPC" parent="Table Set 4" instance=ExtResource("8_05blk")]
 position = Vector2(-66, -18)
-flip_h = true
-texture = ExtResource("5_kay4c")
+texture = ExtResource("5_s860t")
 sprite_position = Vector2(-1, -110)
 
 [node name="NPC2" parent="Table Set 4" instance=ExtResource("8_05blk")]
@@ -148,7 +150,8 @@ sprite_position = Vector2(-1, -110)
 [node name="NPC2" parent="Table Set 5" instance=ExtResource("8_05blk")]
 position = Vector2(63, -18)
 npc = 1
-texture = ExtResource("5_kay4c")
+flip_h = true
+texture = ExtResource("5_s860t")
 sprite_position = Vector2(-1, -110)
 
 [node name="Table Set 6" type="Node2D" parent="."]
@@ -261,20 +264,30 @@ shape = SubResource("WorldBoundaryShape2D_axchr")
 position = Vector2(-14.2177, 223.128)
 shape = SubResource("RectangleShape2D_0fvpw")
 
-[node name="KitchenEntrance" type="Node2D" parent="."]
-position = Vector2(766, 276)
+[node name="KitchenEntrance" type="StaticBody2D" parent="."]
+position = Vector2(770, 531)
 script = ExtResource("9_lmk24")
 
+[node name="Kitchendoor" type="Sprite2D" parent="KitchenEntrance"]
+position = Vector2(-66.2, -106.2)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_brld1")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance"]
+position = Vector2(-56.2, -14.2)
+shape = SubResource("RectangleShape2D_13sqm")
+
 [node name="Area" type="Area2D" parent="KitchenEntrance"]
+position = Vector2(0.799988, -101.2)
 collision_layer = 32784
 collision_mask = 32768
 
 [node name="CollisionShape" type="CollisionShape2D" parent="KitchenEntrance/Area"]
-position = Vector2(-48.5, 4.5)
+position = Vector2(-4.5, 29.6)
 shape = SubResource("RectangleShape2D_s5htm")
 
 [node name="Kitchen" parent="." instance=ExtResource("17_v6k0s")]
-position = Vector2(-300, 877)
+position = Vector2(-270, 1698)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayer"]]
 
