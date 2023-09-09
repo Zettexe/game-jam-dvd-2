@@ -11,7 +11,7 @@ var progress = 0:
 
 func _interact():
 	if player[0].has_crate_powerup:
-		progress += origin_rect.position.y / 4
+		progress += origin_rect.position.y / 3
 		for p in player:
 			p.has_crate_powerup = false
 

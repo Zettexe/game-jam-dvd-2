@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=41 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
 [ext_resource type="Texture2D" uid="uid://bbdmuf0whw526" path="res://Assets/dumbrug.png" id="2_6k04v"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ddkde2fx2sciu" path="res://Assets/f1.png" id="21_afwup"]
 [ext_resource type="Texture2D" uid="uid://sr3j6jdfxftq" path="res://Assets/Illustration30.png" id="22_6ndfk"]
 [ext_resource type="Texture2D" uid="uid://gvluqkypcmcs" path="res://Assets/f2.png" id="22_esu45"]
+[ext_resource type="Texture2D" uid="uid://cugjapbx8yl5u" path="res://Assets/Game_Over_option.png" id="22_ktwyf"]
 [ext_resource type="Texture2D" uid="uid://d1s68wjicc5sg" path="res://Assets/f3.png" id="23_v61eh"]
 [ext_resource type="Texture2D" uid="uid://d010c48jrfogk" path="res://Assets/f4.png" id="24_hppmw"]
 
@@ -63,7 +64,7 @@ size = Vector2(143, 36)
 size = Vector2(49, 80.8)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6osf1"]
-bg_color = Color(0.717647, 0.00392157, 0.937255, 1)
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67803"]
 bg_color = Color(1, 1, 1, 1)
@@ -372,7 +373,6 @@ grow_vertical = 2
 script = ExtResource("20_l7gun")
 
 [node name="GameOver" type="Panel" parent="CanvasLayer/Init" groups=["GameOver"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -380,6 +380,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6osf1")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Init/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_ktwyf")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Joms" type="Panel" parent="CanvasLayer/Init" groups=["Joms"]]
 visible = false
@@ -409,6 +420,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="IntroBackground" type="TextureRect" parent="CanvasLayer/Init" groups=["Intro"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -418,6 +430,7 @@ grow_vertical = 2
 texture = ExtResource("21_4iavb")
 
 [node name="Overlay" type="Panel" parent="CanvasLayer/Init" groups=["Overlay"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
