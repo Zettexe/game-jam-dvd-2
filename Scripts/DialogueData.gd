@@ -45,28 +45,36 @@ const SCRIPTED_DIALOGUE = {
 	ScriptedDialogue.INTRO: [ # Outside
 		{ "character": Character.MC, "content": "(So... This is the Cauldron. Alright...)" },
 		{ "character": Character.MC, "content": "(Now that mom's gone, I gotta work hard.)
-												(Can't live without money, after all...)
-												(And we sold the farm to pay for the meds. Can't live off that either...)" },
+
+(Can't live without money, after all...)
+
+(And we sold the farm to pay for the meds. Can't live off that either...)" },
 		{ "character": Character.MC, "content": "(Ah, come on, Nat. It's just some innwork. How hard could it be?)" },
 		{ "character": Character.MC, "content": "(Here goes nothing.)" },
 		{ "character": Character.NARRATOR, "content": "..." }, #Fade to black
 		{ "character": Character.NARRATOR, "content": "Some months later..." }, # Inside
 		{ "character": Character.MC, "content": "(Sigh. Another day of work. Another day of mopping the floor, and stirring that damn pot, and... Ugh.)
-												(Dealing with customers.)" },
+
+(Dealing with customers.)" },
 		{ "character": Character.WITCH, "content": "Heyyyyy! Girlie! [Hic] Bring me 'nother round! ...And make it frothy, and fast!" },
 		{ "character": Character.MC, "content": "...Ma'am. It's ten in the morning. That's the twelfth—" },
 		{ "character": Character.WITCH, "content": "Silence! Howww dare you? You think you're better than me, don't you? Well I'll show you! No one gets to tell me when to shtop! If I want a damn beer I will get it myshelf!" },
 		{ "character": Character.MC, "content": "(Why do I bother...) Right, ma'am. I'll get you—" },
 		{ "character": Character.WITCH, "content": "Toooo late! I said, huh, I'll get it myself! BEGONE!" },
 		{ "character": Character.NARRATOR, "content": "The witch slams her cane into the wooden floor. A sudden gust of wind blows from its tip, the ground shaking beneath Natalia's feet. The commotion grabs the attention of the few patrons that hadn't already turned for the witch's yelling.
-													It all happens in an instant. The air feels electrified, while a purple glyph of arcane origin makes for a new backdrop for the drunk, albeit now imposing, witch.
-													There's a sudden blinding light emanating from the top of her staff, followed by an eerie ringing sound. The light focuses on a single point on the staff's tip, before turning into a beam, aimed straight at Natalia." },
+
+It all happens in an instant. The air feels electrified, while a purple glyph of arcane origin makes for a new backdrop for the drunk, albeit now imposing, witch.
+
+There's a sudden blinding light emanating from the top of her staff, followed by an eerie ringing sound. The light focuses on a single point on the staff's tip, before turning into a beam, aimed straight at Natalia." },
 		{ "character": Character.MC, "content": "(I can't breathe...)" },
 		{ "character": Character.MC, "content": "(My chest...!)
-												(It hurts...)" },
+
+(It hurts...)" },
 		{ "character": Character.NARRATOR, "content": "The patrons gasp, as the girl behind the counter had disappearead.
-													No one dared move — not even the few guards present. Who would oppose the town's witch Eliza, after all? Especially as she had no qualms about doing any of this in broad daylight.
-													Mostly because of the alcohol, for sure." },
+
+No one dared move — not even the few guards present. Who would oppose the town's witch Eliza, after all? Especially as she had no qualms about doing any of this in broad daylight.
+
+Mostly because of the alcohol, for sure." },
 		{ "character": Character.NARRATOR, "content": "The horrored murmurs changed into confused bewilderments when a small cat jumped on top of the counter. Did they always have pets in here?" },
 		{ "character": Character.MCAT, "content": "Meow?" },
 		{ "character": Character.WITCH, "content": "...Huh?" },
@@ -81,7 +89,8 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.MC, "content": "No, I don't... I don't drink." },
 		{ "character": Character.WITCH, "content": "Tsk! So you do think you're better than me!" },
 		{ "character": Character.MC, "content": "No ma'am... 
-												(She just tried to murder me, and I still have to deal with all this?)" },
+
+(She just tried to murder me, and I still have to deal with all this?)" },
 		{ "character": Character.WITCH, "content": "I was right to [hic] curse you! Hehehehe" },
 		{ "character": Character.MC, "content": "Curse?" },
 		{ "character": Character.WITCH, "content": "Yesh! Hehehehe Every night for the rest of your pitiful short life! You'll do my bidding! Ohohohoho!" },
@@ -89,7 +98,8 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.WITCH, "content": "What? You thought I just turned you into a cat for fun? I needed a new delivery girl! You'll do just fine!" },
 		{ "character": Character.MC, "content": "Wait, hold on—" },
 		{ "character": Character.WITCH, "content": "Ohohohoho!
-													See you tonight, pet!" },
+
+See you tonight, pet!" },
 		{ "character": Character.MC, "content": "You! Come back here—" },
 		{ "character": Character.WITCH, "content": "Toodles!" },
 		{ "character": Character.MC, "content": "..." },
@@ -261,7 +271,45 @@ const SCRIPTED_DIALOGUE = {
 		{ "character": Character.GRANDMA, "content": "Yes, why, she said exactly the same!"},
 		{ "character": Character.HUNTRESS, "content": "..."}
 	],
-	ScriptedDialogue.BAKERY2A: [],
+	ScriptedDialogue.BAKERY2A: [
+		{ "character": Character.GRANDMA, "content": "What's that frown, sweetie?"},
+		{ "character": Character.HUNTRESS, "content": "Hm..."},
+		{ "character": Character.GRANDMA, "content": "Dear?"},
+		{ "character": Character.HUNTRESS, "content": "It's just... That girl."},
+		{ "character": Character.GRANDMA, "content": "Ah? Was she not there today?"},
+		{ "character": Character.HUNTRESS, "content": "Nope. Well, don't think so. Didn't go."},
+		{ "character": Character.GRANDMA, "content": "You didn't?"},
+		{ "character": Character.HUNTRESS, "content": "Yesterday, I told her I wanted to talk.
+													She told me to wait up, so I did."},
+		{ "character": Character.HUNTRESS, "content": "Swung by after the bakery was closed. But before I could talk to her, she's up on a horse and out of town."},
+		{ "character": Character.GRANDMA, "content": "Ah? She eloped? How dreadful..."},
+		{ "character": Character.HUNTRESS, "content": "Guess it wasn't meant to be."},
+		{ "character": Character.GRANDMA, "content": "Now, now, dear. To love is to know when to let theme go. I'm sure she's found a fine man."},
+		{ "character": Character.HUNTRESS, "content": "Wasn't a man."},
+		{ "character": Character.GRANDMA, "content": "Really? Well... She'll still be happy."},
+		{ "character": Character.HUNTRESS, "content": "Yeah, hope so."},
+		{ "character": Character.GRANDMA, "content": "...Did you recognize her?"},
+		{ "character": Character.HUNTRESS, "content": "...Yeah. Think so, at least."},
+		{ "character": Character.HUNTRESS, "content": "Think 'twas Pauline."},
+		{ "character": Character.GRANDMA, "content": "Pauline? The smith's wife?"},
+		{ "character": Character.HUNTRESS, "content": "Not anymore, it seems."},
+		{ "character": Character.GRANDMA, "content": "Ah... Now it makes sense..."},
+		{ "character": Character.HUNTRESS, "content": "What does?"},
+		{ "character": Character.GRANDMA, "content": "I heard someone saying she had gone mad..."},
+		{ "character": Character.GRANDMA, "content": "Now I know what they meant!
+													She was shouting about true love, you see."},
+		{ "character": Character.GRANDMA, "content": "Ah, dearie me. To be young again..."},
+		{ "character": Character.HUNTRESS, "content": "True love, huh..."},
+		{ "character": Character.GRANDMA, "content": "Yes, yes. About remembering what love was, or something of the sort!"},
+		{ "character": Character.HUNTRESS, "content": "Hm. Didn't know she had a thing going on with Melissa."},
+		{ "character": Character.GRANDMA, "content": "Goes to show you never fully know someone! Unless you marry them, haha!"},
+		{ "character": Character.HUNTRESS, "content": "...Guess so."},
+		{ "character": Character.GRANDMA, "content": "Ah, sweetie, sweetie. Stop with the moping. Grandma will make you your favorite apple pie.
+													It won't mend a broken heart, but it's better than an empty belly!"},
+		{ "character": Character.HUNTRESS, "content": "...Yeah... 
+													Thanks, 'ma."},
+		
+	],
 	ScriptedDialogue.BAKERY2B: [],
 	ScriptedDialogue.NIGHT1: [],
 	ScriptedDialogue.GOTCAT: []
