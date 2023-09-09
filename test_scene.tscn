@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://chyr2b72yctbq"]
+[gd_scene load_steps=49 format=3 uid="uid://chyr2b72yctbq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hijv4"]
 [ext_resource type="Texture2D" uid="uid://bbdmuf0whw526" path="res://Assets/dumbrug.png" id="2_6k04v"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://d1d7kdowe45mj" path="res://Assets/flag.png" id="34_cr28p"]
 [ext_resource type="Texture2D" uid="uid://bxwrdxk75d8gn" path="res://Assets/bi.png" id="35_p1pek"]
 [ext_resource type="Texture2D" uid="uid://cfhamfny6ecov" path="res://Assets/aro.png" id="36_pfm5a"]
+[ext_resource type="Texture2D" uid="uid://bux6xh1au0sq3" path="res://Assets/staircase.png" id="37_dc3li"]
 
 [sub_resource type="GDScript" id="GDScript_30r57"]
 script/source = "extends StaticBody2D
@@ -88,6 +89,9 @@ frame_2/texture = ExtResource("23_v61eh")
 frame_2/duration = 0.5
 frame_3/texture = ExtResource("24_hppmw")
 frame_3/duration = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywetn"]
+size = Vector2(386.154, 90)
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -205,7 +209,7 @@ sprite_position = Vector2(-1, -90)
 
 [node name="Table Set 5" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-164, -198)
+position = Vector2(-125, -157)
 
 [node name="Table" parent="Table Set 5" instance=ExtResource("11_1y6eo")]
 
@@ -498,6 +502,18 @@ z_index = 1
 position = Vector2(748, 242)
 texture = ExtResource("36_pfm5a")
 flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-389, -241)
+scale = Vector2(1.3, 1.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-107.692, -33.4616)
+shape = SubResource("RectangleShape2D_ywetn")
+
+[node name="Staircase" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-90, -105.385)
+texture = ExtResource("37_dc3li")
 
 [connection signal="body_entered" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_player_entered"]
 [connection signal="body_exited" from="CarrotCrate/Area" to="CarrotCrate" method="_on_area_body_exited"]
